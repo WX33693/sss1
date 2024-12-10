@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الابتكار والبحث والتطوير - سويت هوم</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon/favicon.svg">
+    <style>
+        .research-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .research-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .research-header h1 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .research-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .research-main-content {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .research-section {
+            margin-bottom: 40px;
+        }
+
+        .research-section h2 {
+            color: #e60000;
+            border-bottom: 2px solid #e60000;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .innovation-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .innovation-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .innovation-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .innovation-card i {
+            font-size: 48px;
+            color: #e60000;
+            margin-bottom: 15px;
+        }
+
+        .innovation-card h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .research-impact {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .impact-grid {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+
+        .impact-item {
+            flex: 1;
+            padding: 15px;
+        }
+
+        .impact-item i {
+            color: #e60000;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .impact-item h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .impact-item p {
+            color: #666;
+        }
+
+        .research-sidebar {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            height: fit-content;
+        }
+
+        .research-projects {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .research-projects h3 {
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e60000;
+            padding-bottom: 10px;
+        }
+
+        .project-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .project-item i {
+            color: #e60000;
+            margin-left: 15px;
+            font-size: 24px;
+        }
+
+        .project-details h4 {
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .project-details p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .research-team {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .research-team h3 {
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e60000;
+            padding-bottom: 10px;
+        }
+
+        .team-member {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .team-member i {
+            color: #e60000;
+            margin-left: 10px;
+        }
+
+        .get-involved {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .get-involved h3 {
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e60000;
+            padding-bottom: 10px;
+        }
+
+        .research-btn {
+            background: #e60000;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.3s;
+            margin-top: 15px;
+        }
+
+        .research-btn:hover {
+            background: #cc0000;
+        }
+
+        .contact-research {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .contact-research h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .contact-btn {
+            background: #e60000;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.3s;
+        }
+
+        .contact-btn:hover {
+            background: #cc0000;
+        }
+
+        @media (max-width: 1024px) {
+            .research-content {
+                grid-template-columns: 1fr;
+            }
+
+            .innovation-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .impact-grid {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .innovation-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="research-container">
+            <div class="research-header">
+                <h1>الابتكار والبحث والتطوير</h1>
+                <p>نبتكر المستقبل ونرسم التكنولوجيا الجديدة</p>
+            </div>
+
+            <div class="research-content">
+                <div class="research-main-content">
+                    <div class="research-section">
+                        <h2>مجالات الابتكار</h2>
+                        <div class="innovation-grid">
+                            <div class="innovation-card">
+                                <i class="fas fa-robot"></i>
+                                <h3>الذكاء الاصطناعي</h3>
+                                <p>حلول ذكية متطورة</p>
+                            </div>
+                            <div class="innovation-card">
+                                <i class="fas fa-home"></i>
+                                <h3>المنزل الذكي</h3>
+                                <p>أتمتة وتحكم متكامل</p>
+                            </div>
+                            <div class="innovation-card">
+                                <i class="fas fa-microchip"></i>
+                                <h3>إنترنت الأشياء</h3>
+                                <p>تواصل وتكامل الأجهزة</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="research-section">
+                        <h2>تأثير البحث والتطوير</h2>
+                        <div class="research-impact">
+                            <div class="impact-grid">
+                                <div class="impact-item">
+                                    <i class="fas fa-award"></i>
+                                    <h3>15+</h3>
+                                    <p>براءة اختراع</p>
+                                </div>
+                                <div class="impact-item">
+                                    <i class="fas fa-flask"></i>
+                                    <h3>30+</h3>
+                                    <p>مشروع بحثي</p>
+                                </div>
+                                <div class="impact-item">
+                                    <i class="fas fa-globe"></i>
+                                    <h3>5</h3>
+                                    <p>جوائز عالمية</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="research-section">
+                        <h2>المشاريع البحثية الجارية</h2>
+                        <div class="innovation-grid">
+                            <div class="innovation-card">
+                                <i class="fas fa-brain"></i>
+                                <h3>التعلم الآلي</h3>
+                                <p>تطوير خوارزميات متقدمة</p>
+                            </div>
+                            <div class="innovation-card">
+                                <i class="fas fa-solar-panel"></i>
+                                <h3>الطاقة الذكية</h3>
+                                <p>أنظمة إدارة الطاقة</p>
+                            </div>
+                            <div class="innovation-card">
+                                <i class="fas fa-shield-alt"></i>
+                                <h3>الأمن السيبراني</h3>
+                                <p>حماية البيانات والخصوصية</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="research-sidebar">
+                    <div class="research-projects">
+                        <h3>المشاريع الحالية</h3>
+                        <div class="project-item">
+                            <i class="fas fa-project-diagram"></i>
+                            <div class="project-details">
+                                <h4>منصة الذكاء الاصطناعي</h4>
+                                <p>تطوير حلول ذكية</p>
+                            </div>
+                        </div>
+                        <div class="project-item">
+                            <i class="fas fa-laptop-code"></i>
+                            <div class="project-details">
+                                <h4>تطبيق المنزل الذكي</h4>
+                                <p>تحكم شامل بالمنزل</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="research-team">
+                        <h3>فريق البحث والتطوير</h3>
+                        <div class="team-member">
+                            <i class="fas fa-user-tie"></i>
+                            <p>مدير البحث والتطوير</p>
+                        </div>
+                        <div class="team-member">
+                            <i class="fas fa-user-graduate"></i>
+                            <p>باحثون متخصصون</p>
+                        </div>
+                    </div>
+
+                    <div class="get-involved">
+                        <h3>انضم إلى فريق الابتكار</h3>
+                        <p>كن جزءًا من مستقبل التكنولوجيا</p>
+                        <button class="research-btn">
+                            <i class="fas fa-flask"></i>
+                            تقدم الآن
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-research">
+                <h3>هل لديك فكرة ابتكارية؟</h3>
+                <a href="#" class="contact-btn">
+                    <i class="fas fa-envelope"></i>
+                    تواصل معنا
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // زر التقديم للابتكار
+        document.querySelector('.research-btn').addEventListener('click', function() {
+            alert('شكرًا لاهتمامك بالابتكار. سنتواصل معك قريبًا');
+        });
+
+        // زر التواصل
+        document.querySelector('.contact-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('سيتم توجيهك إلى صفحة التواصل');
+        });
+    </script>
+</body>
+</html>

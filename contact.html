@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اتصل بنا - سويت هوم</title>
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon/favicon.svg">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .contact-page {
+            padding: 50px 0;
+            background-color: #f9f9f9;
+        }
+        .contact-section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 50px;
+        }
+        .contact-details, .contact-form {
+            flex: 1;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .contact-details h2, .contact-form h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+        }
+        .contact-details ul {
+            list-style: none;
+            padding: 0;
+        }
+        .contact-details li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .contact-details i {
+            margin-left: 10px;
+            color: var(--primary-color);
+            font-size: 20px;
+        }
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+        }
+        .contact-form input, 
+        .contact-form textarea {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        .contact-form button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .contact-form button:hover {
+            background-color: #cc0000;
+        }
+        .map-section {
+            margin-top: 50px;
+            text-align: center;
+        }
+        .map-section h2 {
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        .map-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .cart-favorites-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 20px;
+        }
+        .cart-icon, .favorites-icon {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .cart-icon i, .favorites-icon i {
+            font-size: 20px;
+        }
+        .cart-count, .favorites-count {
+            font-size: 14px;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <!-- Include the same header as index.html -->
+        {{ header from index.html }}
+    </header>
+
+    <div class="cart-favorites-container">
+        <div class="cart-icon">
+            <a href="cart.html">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </a>
+        </div>
+        <div class="favorites-icon">
+            <a href="favorites.html">
+                <i class="far fa-heart"></i>
+                <span class="favorites-count">0</span>
+            </a>
+        </div>
+    </div>
+
+    <main class="contact-page">
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-details">
+                    <h2>معلومات التواصل</h2>
+                    <ul>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <strong>خدمة العملاء:</strong>
+                                <p>19123 | 01025744780</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>البريد الإلكتروني:</strong>
+                                <p>wx33693@gmail.com</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>العنوان:</strong>
+                                <p>مبنى 25، شارع التسعين الشمالي، التجمع الخامس، القاهرة الجديدة، مصر</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>ساعات العمل:</strong>
+                                <p>السبت - الخميس: 9 صباحًا - 6 مساءً</p>
+                                <p>الجمعة: مغلق</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/0WX33693" target="_blank" class="facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/wx33_6/" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/wx33693" target="_blank" class="twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.youtube.com/@wx33693" target="_blank" class="youtube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h2>راسلنا</h2>
+                    <form id="contactForm">
+                        <input type="text" name="name" placeholder="الاسم الكامل" required>
+                        <input type="email" name="email" placeholder="البريد الإلكتروني" required>
+                        <input type="tel" name="phone" placeholder="رقم الهاتف">
+                        <input type="text" name="subject" placeholder="عنوان الرسالة" required>
+                        <textarea name="message" placeholder="تفاصيل رسالتك" required></textarea>
+                        <button type="submit">إرسال الرسالة</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="map-section">
+            <h2>موقعنا</h2>
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3454.5268393820255!2d31.338202!3d30.0131!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583d5d7c1a9fcf%3A0x7d0e744a05540b4!2z2KfZhNiz2YrYp9iqINin2YTYs9mK2Kkg2KfZhNi52LHZiNmK!5e0!3m2!1sar!2seg!4v1702163000000!5m2!1sar!2seg" 
+                    width="100%" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <!-- Include the same footer as index.html -->
+        {{ footer from index.html }}
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('شكرًا لتواصلك معنا. سنقوم بالرد عليك في أقرب وقت ممكن.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

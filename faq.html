@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأسئلة الشائعة - سويت هوم</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon/favicon.svg">
+    <style>
+        .faq-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .faq-header h1 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .faq-search {
+            display: flex;
+            align-items: center;
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 10px 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .faq-search input {
+            flex: 1;
+            border: none;
+            background: none;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .faq-search button {
+            background: #e60000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .faq-categories {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            background: #f8f9fa;
+            color: #666;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .category-btn.active,
+        .category-btn:hover {
+            background: #e60000;
+            color: white;
+        }
+
+        .faq-accordion {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            transition: all 0.3s;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            cursor: pointer;
+            background: #f8f9fa;
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background: #f0f0f0;
+        }
+
+        .faq-question h3 {
+            font-size: 18px;
+            color: #333;
+            margin: 0;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 20px;
+            background: white;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .contact-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .contact-btn {
+            background: #e60000;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.3s;
+        }
+
+        .contact-btn:hover {
+            background: #cc0000;
+        }
+
+        @media (max-width: 768px) {
+            .faq-categories {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .faq-question h3 {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="faq-container">
+            <div class="faq-header">
+                <h1>الأسئلة الشائعة</h1>
+                <div class="faq-search">
+                    <input type="text" placeholder="ابحث في الأسئلة الشائعة">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+
+            <div class="faq-categories">
+                <button class="category-btn active" data-category="all">كل الأسئلة</button>
+                <button class="category-btn" data-category="shopping">التسوق</button>
+                <button class="category-btn" data-category="delivery">الشحن والتوصيل</button>
+                <button class="category-btn" data-category="returns">الإرجاع والاستبدال</button>
+                <button class="category-btn" data-category="payment">الدفع</button>
+            </div>
+
+            <div class="faq-accordion">
+                <div class="faq-item" data-category="shopping">
+                    <div class="faq-question">
+                        <h3>كيف يمكنني الشراء من سويت هوم؟</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>يمكنك الشراء من سويت هوم بسهولة عن طريق اتباع الخطوات التالية:</p>
+                        <ul>
+                            <li>تصفح المنتجات في صفحة المنتجات</li>
+                            <li>اختيار المنتج المطلوب</li>
+                            <li>إضافة المنتج إلى سلة التسوق</li>
+                            <li>إكمال عملية الشراء في صفحة الدفع</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="delivery">
+                    <div class="faq-question">
+                        <h3>ما هي مدة الشحن؟</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>مدة الشحن تختلف حسب المنطقة:</p>
+                        <ul>
+                            <li>داخل القاهرة: 1-2 يوم عمل</li>
+                            <li>محافظات مصر: 3-5 أيام عمل</li>
+                            <li>شحن دولي: 7-14 يوم عمل</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="returns">
+                    <div class="faq-question">
+                        <h3>ما هي سياسة الإرجاع والاستبدال؟</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>يمكنك إرجاع أو استبدال المنتج خلال 14 يوم من تاريخ الشراء مع مراعاة الشروط التالية:</p>
+                        <ul>
+                            <li>المنتج غير مستخدم وبحالته الأصلية</li>
+                            <li>وجود فاتورة الشراء الأصلية</li>
+                            <li>عدم وجود تلف أو خدوش</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="payment">
+                    <div class="faq-question">
+                        <h3>ما هي طرق الدفع المتاحة؟</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>نوفر لك العديد من طرق الدفع المريحة:</p>
+                        <ul>
+                            <li>الدفع عند الاستلام</li>
+                            <li>بطاقات الائتمان (Visa, Mastercard)</li>
+                            <li>PayPal</li>
+                            <li>التحويل البنكي</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="shopping">
+                    <div class="faq-question">
+                        <h3>هل يمكنني تتبع طلبي؟</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>نعم، يمكنك تتبع طلبك بسهولة من خلال:</p>
+                        <ul>
+                            <li>الدخول على حسابك الشخصي</li>
+                            <li>الذهاب إلى قسم تتبع الطلبات</li>
+                            <li>إدخال رقم الطلب</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-section">
+                <h2>هل لديك سؤال لم تجد له إجابة؟</h2>
+                <a href="#" class="contact-btn">
+                    <i class="fas fa-headset"></i>
+                    تواصل معنا
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // تفعيل الأسئلة الشائعة
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const faqItem = this.closest('.faq-item');
+                faqItem.classList.toggle('active');
+            });
+        });
+
+        // تصنيف الأسئلة
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // إزالة الكلاس النشط من جميع الأزرار
+                document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+                
+                // إضافة الكلاس النشط للزر المحدد
+                this.classList.add('active');
+
+                const category = this.dataset.category;
+                const faqItems = document.querySelectorAll('.faq-item');
+
+                faqItems.forEach(item => {
+                    if (category === 'all' || item.dataset.category === category) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // البحث في الأسئلة
+        document.querySelector('.faq-search button').addEventListener('click', function() {
+            const searchTerm = document.querySelector('.faq-search input').value.toLowerCase();
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question h3').textContent.toLowerCase();
+                const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+
+                if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

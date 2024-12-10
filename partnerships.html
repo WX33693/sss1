@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الشراكات والتعاون - سويت هوم</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon/favicon.svg">
+    <style>
+        .partnerships-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .partnerships-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .partnerships-header h1 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .partnerships-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .partnerships-main-content {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .partnerships-section {
+            margin-bottom: 40px;
+        }
+
+        .partnerships-section h2 {
+            color: #e60000;
+            border-bottom: 2px solid #e60000;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .partner-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .partner-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .partner-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .partner-card img {
+            max-width: 150px;
+            max-height: 100px;
+            margin-bottom: 15px;
+        }
+
+        .partner-card h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .partnership-types {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .partnership-type {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .partnership-type i {
+            color: #e60000;
+            font-size: 36px;
+            margin-left: 15px;
+        }
+
+        .partnership-type-info h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .partnership-type-info p {
+            color: #666;
+        }
+
+        .partnerships-sidebar {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            height: fit-content;
+        }
+
+        .partnership-benefits {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .partnership-benefits h3 {
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e60000;
+            padding-bottom: 10px;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .benefit-item i {
+            color: #e60000;
+            margin-left: 10px;
+        }
+
+        .become-partner {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .become-partner h3 {
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e60000;
+            padding-bottom: 10px;
+        }
+
+        .partnership-btn {
+            background: #e60000;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.3s;
+            margin-top: 15px;
+        }
+
+        .partnership-btn:hover {
+            background: #cc0000;
+        }
+
+        .contact-partnerships {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .contact-partnerships h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .contact-btn {
+            background: #e60000;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.3s;
+        }
+
+        .contact-btn:hover {
+            background: #cc0000;
+        }
+
+        @media (max-width: 1024px) {
+            .partnerships-content {
+                grid-template-columns: 1fr;
+            }
+
+            .partner-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .partner-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .partnership-type {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .partnership-type i {
+                margin-left: 0;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="partnerships-container">
+            <div class="partnerships-header">
+                <h1>شراكاتنا الاستراتيجية</h1>
+                <p>نبني مستقبل التكنولوجيا معًا</p>
+            </div>
+
+            <div class="partnerships-content">
+                <div class="partnerships-main-content">
+                    <div class="partnerships-section">
+                        <h2>شركاؤنا</h2>
+                        <div class="partner-grid">
+                            <div class="partner-card">
+                                <img src="assets/images/partners/samsung.png" alt="سامسونج">
+                                <h3>سامسونج</h3>
+                                <p>شريك تكنولوجي رئيسي</p>
+                            </div>
+                            <div class="partner-card">
+                                <img src="assets/images/partners/lg.png" alt="إل جي">
+                                <h3>إل جي</h3>
+                                <p>شريك في الأجهزة المنزلية</p>
+                            </div>
+                            <div class="partner-card">
+                                <img src="assets/images/partners/panasonic.png" alt="باناسونيك">
+                                <h3>باناسونيك</h3>
+                                <p>شريك في الابتكار</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="partnerships-section">
+                        <h2>أنواع الشراكات</h2>
+                        <div class="partnership-types">
+                            <div class="partnership-type">
+                                <i class="fas fa-handshake"></i>
+                                <div class="partnership-type-info">
+                                    <h3>الشراكة التكنولوجية</h3>
+                                    <p>تطوير منتجات مبتكرة وحلول متكاملة</p>
+                                </div>
+                            </div>
+                            <div class="partnership-type">
+                                <i class="fas fa-globe"></i>
+                                <div class="partnership-type-info">
+                                    <h3>الشراكة العالمية</h3>
+                                    <p>توسيع نطاق التواجد والخدمات</p>
+                                </div>
+                            </div>
+                            <div class="partnership-type">
+                                <i class="fas fa-chart-line"></i>
+                                <div class="partnership-type-info">
+                                    <h3>الشراكة الاستراتيجية</h3>
+                                    <p>تحقيق النمو المشترك والتميز</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="partnerships-section">
+                        <h2>شهادات وجوائز الشراكة</h2>
+                        <div class="partner-grid">
+                            <div class="partner-card">
+                                <i class="fas fa-trophy"></i>
+                                <h3>جائزة أفضل شراكة</h3>
+                                <p>التميز في التعاون</p>
+                            </div>
+                            <div class="partner-card">
+                                <i class="fas fa-award"></i>
+                                <h3>شهادة التميز</h3>
+                                <p>الابتكار المشترك</p>
+                            </div>
+                            <div class="partner-card">
+                                <i class="fas fa-medal"></i>
+                                <h3>جائزة التعاون العالمي</h3>
+                                <p>الريادة في الشراكات</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="partnerships-sidebar">
+                    <div class="partnership-benefits">
+                        <h3>مزايا الشراكة معنا</h3>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>وصول لأسواق جديدة</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>تبادل الخبرات التكنولوجية</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>ابتكارات مشتركة</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check"></i>
+                            <p>نمو مستدام</p>
+                        </div>
+                    </div>
+
+                    <div class="become-partner">
+                        <h3>كن شريكًا</h3>
+                        <p>انضم إلى شركائنا الاستراتيجيين</p>
+                        <button class="partnership-btn">
+                            <i class="fas fa-handshake"></i>
+                            تقدم الآن
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-partnerships">
+                <h3>هل أنت مهتم بالشراكة؟</h3>
+                <a href="#" class="contact-btn">
+                    <i class="fas fa-envelope"></i>
+                    تواصل معنا
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // زر التقديم للشراكة
+        document.querySelector('.partnership-btn').addEventListener('click', function() {
+            alert('شكرًا لاهتمامك بالشراكة. سنتواصل معك قريبًا');
+        });
+
+        // زر التواصل
+        document.querySelector('.contact-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('سيتم توجيهك إلى صفحة التواصل');
+        });
+    </script>
+</body>
+</html>

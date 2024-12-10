@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المسؤولية المجتمعية - سويت هوم</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon/favicon.svg">
+    <style>
+        .community-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .community-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .community-header h1 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .community-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .community-main-content {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .community-section {
+            margin-bottom: 40px;
+        }
+
+        .community-section h2 {
+            color: #e60000;
+            border-bottom: 2px solid #e60000;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .initiative-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .initiative-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .initiative-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .initiative-card i {
+            font-size: 48px;
+            color: #e60000;
+            margin-bottom: 15px;
+        }
+
+        .initiative-card h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .community-impact {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .impact-grid {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+
+        .impact-item {
+            flex: 1;
+            padding: 15px;
+        }
+
+        .impact-item i {
+            color: #e60000;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .impact-item h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .impact-item p {
+            color: #666;
+        }
+
+        .community-sidebar {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            height: fit-content;
+        }
+
+        .partner-organizations {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .partner-organizations h3 {
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e60000;
+            padding-bottom: 10px;
+        }
+
+        .partner-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .partner-item i {
+            color: #e60000;
+            margin-left: 15px;
+            font-size: 24px;
+        }
+
+        .partner-details h4 {
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .partner-details p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .volunteer-programs {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .volunteer-programs h3 {
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e60000;
+            padding-bottom: 10px;
+        }
+
+        .volunteer-item {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .volunteer-item i {
+            color: #e60000;
+            margin-left: 10px;
+        }
+
+        .get-involved {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .get-involved h3 {
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e60000;
+            padding-bottom: 10px;
+        }
+
+        .community-btn {
+            background: #e60000;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.3s;
+            margin-top: 15px;
+        }
+
+        .community-btn:hover {
+            background: #cc0000;
+        }
+
+        .contact-community {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .contact-community h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .contact-btn {
+            background: #e60000;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.3s;
+        }
+
+        .contact-btn:hover {
+            background: #cc0000;
+        }
+
+        @media (max-width: 1024px) {
+            .community-content {
+                grid-template-columns: 1fr;
+            }
+
+            .initiative-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .impact-grid {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .initiative-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="community-container">
+            <div class="community-header">
+                <h1>المسؤولية المجتمعية</h1>
+                <p>نلتزم بخدمة المجتمع والمساهمة في التنمية المستدامة</p>
+            </div>
+
+            <div class="community-content">
+                <div class="community-main-content">
+                    <div class="community-section">
+                        <h2>مبادراتنا المجتمعية</h2>
+                        <div class="initiative-grid">
+                            <div class="initiative-card">
+                                <i class="fas fa-school"></i>
+                                <h3>التعليم</h3>
+                                <p>دعم المدارس والتعليم</p>
+                            </div>
+                            <div class="initiative-card">
+                                <i class="fas fa-hand-holding-heart"></i>
+                                <h3>الرعاية الصحية</h3>
+                                <p>حملات طبية مجانية</p>
+                            </div>
+                            <div class="initiative-card">
+                                <i class="fas fa-tree"></i>
+                                <h3>البيئة</h3>
+                                <p>مشاريع التشجير والنظافة</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="community-section">
+                        <h2>تأثيرنا المجتمعي</h2>
+                        <div class="community-impact">
+                            <div class="impact-grid">
+                                <div class="impact-item">
+                                    <i class="fas fa-users"></i>
+                                    <h3>5000+</h3>
+                                    <p>مستفيد مباشر</p>
+                                </div>
+                                <div class="impact-item">
+                                    <i class="fas fa-hands-helping"></i>
+                                    <h3>50+</h3>
+                                    <p>مبادرة مجتمعية</p>
+                                </div>
+                                <div class="impact-item">
+                                    <i class="fas fa-globe"></i>
+                                    <h3>10</h3>
+                                    <p>محافظات مستهدفة</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="community-section">
+                        <h2>برامج التطوع</h2>
+                        <div class="initiative-grid">
+                            <div class="initiative-card">
+                                <i class="fas fa-book-reader"></i>
+                                <h3>محو الأمية</h3>
+                                <p>تعليم القراءة والكتابة</p>
+                            </div>
+                            <div class="initiative-card">
+                                <i class="fas fa-laptop"></i>
+                                <h3>التدريب التقني</h3>
+                                <p>تأهيل الشباب رقميًا</p>
+                            </div>
+                            <div class="initiative-card">
+                                <i class="fas fa-hands-helping"></i>
+                                <h3>المساعدات</h3>
+                                <p>دعم الأسر المحتاجة</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="community-sidebar">
+                    <div class="partner-organizations">
+                        <h3>شركاؤنا المجتمعيون</h3>
+                        <div class="partner-item">
+                            <i class="fas fa-university"></i>
+                            <div class="partner-details">
+                                <h4>جمعية التنمية</h4>
+                                <p>شريك استراتيجي</p>
+                            </div>
+                        </div>
+                        <div class="partner-item">
+                            <i class="fas fa-hospital"></i>
+                            <div class="partner-details">
+                                <h4>مؤسسة الرعاية الصحية</h4>
+                                <p>شريك في المبادرات الصحية</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="volunteer-programs">
+                        <h3>برامج التطوع الحالية</h3>
+                        <div class="volunteer-item">
+                            <i class="fas fa-check"></i>
+                            <p>برنامج تعليم الأطفال</p>
+                        </div>
+                        <div class="volunteer-item">
+                            <i class="fas fa-check"></i>
+                            <p>مبادرة التدريب المهني</p>
+                        </div>
+                    </div>
+
+                    <div class="get-involved">
+                        <h3>كن جزءًا من التغيير</h3>
+                        <p>انضم إلى برامج التطوع</p>
+                        <button class="community-btn">
+                            <i class="fas fa-hand-holding-heart"></i>
+                            سجل الآن
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-community">
+                <h3>هل تريد المساهمة في المجتمع؟</h3>
+                <a href="#" class="contact-btn">
+                    <i class="fas fa-envelope"></i>
+                    تواصل معنا
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // زر التسجيل في التطوع
+        document.querySelector('.community-btn').addEventListener('click', function() {
+            alert('شكرًا لاهتمامك بالتطوع. سنتواصل معك قريبًا');
+        });
+
+        // زر التواصل
+        document.querySelector('.contact-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('سيتم توجيهك إلى صفحة التواصل');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التكنولوجيا الحديثة في المطبخ - سويت هوم</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon/favicon.svg">
+    <style>
+        .blog-post-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .post-header {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .post-title {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .post-meta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .post-meta span {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .post-image {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .post-content {
+            line-height: 2;
+            color: #444;
+            text-align: justify;
+        }
+
+        .post-content h2 {
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #333;
+            border-bottom: 2px solid #e60000;
+            padding-bottom: 10px;
+        }
+
+        .post-content p {
+            margin-bottom: 20px;
+        }
+
+        .post-content ul {
+            list-style-type: disc;
+            padding-right: 30px;
+            margin-bottom: 20px;
+        }
+
+        .post-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .post-tags {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .post-tag {
+            background: #f8f9fa;
+            color: #666;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .related-posts {
+            margin-top: 50px;
+            border-top: 1px solid #eee;
+            padding-top: 30px;
+        }
+
+        .related-posts h3 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .related-posts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .related-post {
+            background: #f8f9fa;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .related-post-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .related-post-details {
+            padding: 15px;
+        }
+
+        .related-post-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .read-related {
+            color: #e60000;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 10px;
+        }
+
+        .social-share {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .social-share a {
+            color: #666;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+
+        .social-share a:hover {
+            color: #e60000;
+        }
+
+        .cart-favorites-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .cart-icon, .favorites-icon {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cart-icon a, .favorites-icon a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .cart-count, .favorites-count {
+            font-size: 14px;
+            margin-left: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .post-title {
+                font-size: 24px;
+            }
+
+            .related-posts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cart-favorites-container">
+        <div class="cart-icon">
+            <a href="cart.html">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </a>
+        </div>
+        <div class="favorites-icon">
+            <a href="favorites.html">
+                <i class="far fa-heart"></i>
+                <span class="favorites-count">0</span>
+            </a>
+        </div>
+    </div>
+    <main>
+        <div class="blog-post-container">
+            <div class="post-header">
+                <h1 class="post-title">التكنولوجيا الحديثة في المطبخ: مستقبل الطهي الذكي</h1>
+                <div class="post-meta">
+                    <span><i class="fas fa-calendar"></i> 15 ديسمبر 2023</span>
+                    <span><i class="fas fa-user"></i> محمد أحمد</span>
+                    <span><i class="fas fa-tag"></i> تكنولوجيا المطبخ</span>
+                </div>
+            </div>
+
+            <img src="assets/images/blog/kitchen-tech.jpg" alt="التكنولوجيا الحديثة في المطبخ" class="post-image">
+
+            <div class="post-content">
+                <p>في عصر التكنولوجيا الحديثة، أصبح المطبخ مكانًا للابتكار والذكاء. لم يعد مجرد مساحة للطهي، بل أصبح مركزًا للتكنولوجيا المتطورة التي تجعل الطهي أكثر متعة وسهولة.</p>
+
+                <h2>الأجهزة الذكية التي ستغير مفهوم المطبخ</h2>
+                <p>هناك العديد من الأجهزة الذكية التي تحولت من مجرد أدوات تقليدية إلى أجهزة متطورة تعمل بالذكاء الاصطناعي:</p>
+                <ul>
+                    <li>الثلاجات الذكية مع شاشات تعمل باللمس</li>
+                    <li>أفران ذكية يمكن التحكم بها عن بعد</li>
+                    <li>طناجر ضغط متصلة بالإنترنت</li>
+                    <li>خلاطات ذكية تحلل المكونات</li>
+                </ul>
+
+                <h2>مميزات التكنولوجيا في المطبخ</h2>
+                <p>تقدم الأجهزة الذكية العديد من المميزات التي تجعل تجربة الطهي أكثر متعة وكفاءة:</p>
+                <ul>
+                    <li>توفير الوقت والجهد</li>
+                    <li>دقة عالية في الطهي</li>
+                    <li>توفير الطاقة</li>
+                    <li>تتبع التغذية وحساب السعرات الحرارية</li>
+                </ul>
+
+                <img src="assets/images/blog/smart-kitchen-devices.jpg" alt="أجهزة المطبخ الذكية">
+
+                <h2>مستقبل المطابخ الذكية</h2>
+                <p>مع التطور التكنولوجي المستمر، أصبحت المطابخ الذكية حلمًا يتحول إلى واقع. نتوقع في المستقبل القريب أجهزة أكثر تطورًا وذكاءً.</p>
+            </div>
+
+            <div class="post-tags">
+                <span class="post-tag">#تكنولوجيا_المطبخ</span>
+                <span class="post-tag">#أجهزة_ذكية</span>
+                <span class="post-tag">#مطبخ_المستقبل</span>
+            </div>
+
+            <div class="social-share">
+                <a href="#" title="مشاركة على فيسبوك"><i class="fab fa-facebook"></i></a>
+                <a href="#" title="مشاركة على تويتر"><i class="fab fa-twitter"></i></a>
+                <a href="#" title="مشاركة على انستجرام"><i class="fab fa-instagram"></i></a>
+                <a href="#" title="مشاركة على واتساب"><i class="fab fa-whatsapp"></i></a>
+            </div>
+
+            <div class="related-posts">
+                <h3>مقالات ذات صلة</h3>
+                <div class="related-posts-grid">
+                    <div class="related-post">
+                        <img src="assets/images/blog/mixer-tips.jpg" alt="نصائح استخدام الخلاط" class="related-post-image">
+                        <div class="related-post-details">
+                            <h4 class="related-post-title">10 نصائح للاستخدام الأمثل للخلاط</h4>
+                            <a href="#" class="read-related">
+                                اقرأ المزيد
+                                <i class="fas fa-arrow-left"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="related-post">
+                        <img src="assets/images/blog/coffee-maker-maintenance.jpg" alt="صيانة ماكينة القهوة" class="related-post-image">
+                        <div class="related-post-details">
+                            <h4 class="related-post-title">كيفية صيانة ماكينة القهوة</h4>
+                            <a href="#" class="read-related">
+                                اقرأ المزيد
+                                <i class="fas fa-arrow-left"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="related-post">
+                        <img src="assets/images/blog/smart-kitchen.jpg" alt="المطبخ الذكي" class="related-post-image">
+                        <div class="related-post-details">
+                            <h4 class="related-post-title">المطبخ الذكي: مستقبل المنازل العصرية</h4>
+                            <a href="#" class="read-related">
+                                اقرأ المزيد
+                                <i class="fas fa-arrow-left"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // مشاركة على وسائل التواصل الاجتماعي
+        document.querySelectorAll('.social-share a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const platform = this.querySelector('i').classList[1].replace('fa-', '');
+                alert(`مشاركة المقال على ${platform}`);
+            });
+        });
+    </script>
+</body>
+</html>

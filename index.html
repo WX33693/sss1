@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سويت هوم - Sweet Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon/favicon.svg">
+</head>
+<body>
+    <!-- شريط الإعلانات العلوي -->
+    <div class="top-banner">
+        <div class="marquee">
+            <span>🔥 عروض حصرية - خصومات تصل لـ 50% على الأجهزة المنزلية</span>
+            <span>🚚 شحن مجاني للطلبات أكتر من 1000 جنيه</span>
+            <span>⭐ ضمان أفضل سعر في السوق</span>
+        </div>
+    </div>
+
+    <!-- الهيدر -->
+    <header>
+        <div class="header-top">
+            <div class="contact-info">
+                <span><i class="fas fa-phone"></i> اتصل بينا: 01025744780</span>
+                <span><i class="fas fa-clock"></i> خدمة العملا 24 ساعة</span>
+            </div>
+            <div class="user-actions">
+                <a href="login.html"><i class="fas fa-user"></i> دخول</a>
+                <span>|</span>
+                <a href="register.html"><i class="fas fa-user-plus"></i> حساب جديد</a>
+            </div>
+        </div>
+
+        <div class="header-main">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/logo.png" alt="سويت هوم">
+                </a>
+            </div>
+            <div class="search-bar">
+                <form action="/search" method="get">
+                    <input type="text" placeholder="دور على اللي نفسك فيه...">
+                    <button type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+            <div class="cart-favorites-container">
+                <div class="cart-icon">
+                    <a href="cart.html">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+                <div class="favorites-icon">
+                    <a href="favorites.html">
+                        <i class="far fa-heart"></i>
+                        <span class="favorites-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html" class="active">الرئيسية</a></li>
+                <li class="dropdown">
+                    <a href="products.html">الأقسام</a>
+                    <div class="dropdown-content">
+                        <a href="home-appliances.html">الأجهزة المنزلية</a>
+                        <a href="electronics.html">الإلكترونيات</a>
+                        <a href="kitchen-appliances.html">أجهزة المطبخ</a>
+                        <a href="smart-home.html">المنزل الذكي</a>
+                        <a href="gardening.html">الحدائق</a>
+                        <a href="cleaning-tools.html">أدوات التنظيف</a>
+                        <a href="bathroom-equipment.html">معدات الحمام</a>
+                        <a href="bedroom-accessories.html">أدوات غرفة النوم</a>
+                        <a href="lighting.html">الإضاءة</a>
+                        <a href="decoration.html">الديكور</a>
+                        <a href="furniture.html">الأثاث</a>
+                        <a href="kitchen-tools.html">أدوات المطبخ</a>
+                    </div>
+                </li>
+                <li><a href="warranty.html">الضمان</a></li>
+                <li><a href="contact.html">انضم إلينا</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- السلايدر الرئيسي -->
+    <section class="main-slider">
+        <div class="slider-container">
+            <div class="slide active">
+                <img src="assets/images/slider/slide1.jpg" alt="عروض المطبخ">
+                <div class="slide-content">
+                    <h2>خصومات تصل لـ 50%</h2>
+                    <p>على جميع أجهزة المطبخ</p>
+                    <a href="products.html?cat=kitchen" class="btn">تسوق دلوقتي</a>
+                </div>
+            </div>
+        </div>
+        <button class="slider-btn prev"><i class="fas fa-chevron-right"></i></button>
+        <button class="slider-btn next"><i class="fas fa-chevron-left"></i></button>
+    </section>
+
+    <!-- الأقسام المميزة -->
+    <section class="featured-categories">
+        <h2>الأقسام المميزة</h2>
+        <div class="categories-grid">
+            <div class="category-card">
+                <img src="assets/images/categories/kitchen.jpg" alt="المطبخ">
+                <h3>المطبخ</h3>
+                <a href="products.html?cat=kitchen" class="category-link">تسوق دلوقتي</a>
+            </div>
+            <div class="category-card">
+                <img src="assets/images/categories/appliances.jpg" alt="الأجهزة المنزلية">
+                <h3>الأجهزة المنزلية</h3>
+                <a href="products.html?cat=appliances" class="category-link">تسوق دلوقتي</a>
+            </div>
+            <div class="category-card">
+                <img src="assets/images/categories/furniture.jpg" alt="الأثاث">
+                <h3>الأثاث</h3>
+                <a href="products.html?cat=furniture" class="category-link">تسوق دلوقتي</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- العروض المميزة -->
+    <section class="special-offers">
+        <div class="section-header">
+            <h2>أقوى العروض</h2>
+            <p>تخفيضات حصرية على أفضل المنتجات</p>
+        </div>
+        <div class="offers-grid">
+            <!-- منتج 1 -->
+            <div class="offer-card">
+                <div class="offer-badge">
+                    <span class="discount">خصم 35%</span>
+                    <span class="special">عرض خاص</span>
+                </div>
+                <div class="offer-image">
+                    <img src="images/products/living-room-set.jpg" alt="طقم صالون مودرن">
+                    <div class="offer-overlay">
+                        <div class="overlay-content">
+                            <button class="quick-view">عرض سريع</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="offer-content">
+                    <h3 class="offer-title">طقم صالون مودرن فاخر</h3>
+                    <div class="offer-details">
+                        <span class="category">صالونات</span>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(4.5)</span>
+                        </div>
+                    </div>
+                    <div class="offer-price">
+                        <span class="current">15,600 ج.م</span>
+                        <span class="original">24,000 ج.م</span>
+                    </div>
+                    <div class="offer-actions">
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            أضف للسلة
+                        </button>
+                        <button class="add-to-favorites">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- منتج 2 -->
+            <div class="offer-card">
+                <div class="offer-badge">
+                    <span class="discount">خصم 40%</span>
+                    <span class="special">الأكثر مبيعاً</span>
+                </div>
+                <div class="offer-image">
+                    <img src="images/products/bedroom-set.jpg" alt="غرفة نوم كاملة">
+                    <div class="offer-overlay">
+                        <div class="overlay-content">
+                            <button class="quick-view">عرض سريع</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="offer-content">
+                    <h3 class="offer-title">غرفة نوم كاملة مودرن</h3>
+                    <div class="offer-details">
+                        <span class="category">غرف نوم</span>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(5.0)</span>
+                        </div>
+                    </div>
+                    <div class="offer-price">
+                        <span class="current">18,000 ج.م</span>
+                        <span class="original">30,000 ج.م</span>
+                    </div>
+                    <div class="offer-actions">
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            أضف للسلة
+                        </button>
+                        <button class="add-to-favorites">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- منتج 3 -->
+            <div class="offer-card">
+                <div class="offer-badge">
+                    <span class="discount">خصم 30%</span>
+                </div>
+                <div class="offer-image">
+                    <img src="images/products/dining-set.jpg" alt="طقم سفرة كامل">
+                    <div class="offer-overlay">
+                        <div class="overlay-content">
+                            <button class="quick-view">عرض سريع</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="offer-content">
+                    <h3 class="offer-title">طقم سفرة 8 كراسي</h3>
+                    <div class="offer-details">
+                        <span class="category">سفرة</span>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(4.0)</span>
+                        </div>
+                    </div>
+                    <div class="offer-price">
+                        <span class="current">12,600 ج.م</span>
+                        <span class="original">18,000 ج.م</span>
+                    </div>
+                    <div class="offer-actions">
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            أضف للسلة
+                        </button>
+                        <button class="add-to-favorites">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- منتج 4 -->
+            <div class="offer-card">
+                <div class="offer-badge">
+                    <span class="discount">خصم 45%</span>
+                    <span class="special">جديد</span>
+                </div>
+                <div class="offer-image">
+                    <img src="images/products/kitchen-cabinet.jpg" alt="مطبخ مودرن">
+                    <div class="offer-overlay">
+                        <div class="overlay-content">
+                            <button class="quick-view">عرض سريع</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="offer-content">
+                    <h3 class="offer-title">مطبخ مودرن خشب زان</h3>
+                    <div class="offer-details">
+                        <span class="category">مطابخ</span>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(4.5)</span>
+                        </div>
+                    </div>
+                    <div class="offer-price">
+                        <span class="current">22,000 ج.م</span>
+                        <span class="original">40,000 ج.م</span>
+                    </div>
+                    <div class="offer-actions">
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            أضف للسلة
+                        </button>
+                        <button class="add-to-favorites">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- منتج 5 -->
+            <div class="offer-card">
+                <div class="offer-badge">
+                    <span class="discount">خصم 25%</span>
+                </div>
+                <div class="offer-image">
+                    <img src="images/products/office-desk.jpg" alt="مكتب مودرن">
+                    <div class="offer-overlay">
+                        <div class="overlay-content">
+                            <button class="quick-view">عرض سريع</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="offer-content">
+                    <h3 class="offer-title">مكتب مودرن مع رفوف</h3>
+                    <div class="offer-details">
+                        <span class="category">مكاتب</span>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(4.0)</span>
+                        </div>
+                    </div>
+                    <div class="offer-price">
+                        <span class="current">3,750 ج.م</span>
+                        <span class="original">5,000 ج.م</span>
+                    </div>
+                    <div class="offer-actions">
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            أضف للسلة
+                        </button>
+                        <button class="add-to-favorites">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- منتج 6 -->
+            <div class="offer-card">
+                <div class="offer-badge">
+                    <span class="discount">خصم 50%</span>
+                    <span class="special">العرض الأقوى</span>
+                </div>
+                <div class="offer-image">
+                    <img src="images/products/sofa-set.jpg" alt="طقم كنب">
+                    <div class="offer-overlay">
+                        <div class="overlay-content">
+                            <button class="quick-view">عرض سريع</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="offer-content">
+                    <h3 class="offer-title">طقم كنب ركنة مودرن</h3>
+                    <div class="offer-details">
+                        <span class="category">كنب</span>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(5.0)</span>
+                        </div>
+                    </div>
+                    <div class="offer-price">
+                        <span class="current">10,000 ج.م</span>
+                        <span class="original">20,000 ج.م</span>
+                    </div>
+                    <div class="offer-actions">
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            أضف للسلة
+                        </button>
+                        <button class="add-to-favorites">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>عن سويت هوم</h3>
+                <p>أكبر متجر للأدوات المنزلية في مصر</p>
+                <div class="social-links">
+                    <a href="https://www.youtube.com/@wx33693" target="_blank" class="youtube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://x.com/wx33693" target="_blank" class="twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.facebook.com/0WX33693" target="_blank" class="facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/wx33_6/" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>روابط سريعة</h3>
+                <ul>
+                    <li><a href="warranty.html">الضمان وخدمة ما بعد البيع</a></li>
+                    <li><a href="terms-conditions.html">الشروط والأحكام</a></li>
+                    <li><a href="privacy-policy.html">سياسة الخصوصية</a></li>
+                    <li><a href="social-responsibility.html">المسؤولية الاجتماعية</a></li>
+                    <li><a href="careers.html">انضم إلينا</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>روابط سريعة</h3>
+                <ul>
+                    <li><a href="innovation.html">الابتكار والتكنولوجيا</a></li>
+                    <li><a href="partnerships.html">الشراكات والتعاون</a></li>
+                    <li><a href="community-responsibility.html">المسؤولية المجتمعية</a></li>
+                    <li><a href="research-and-development.html">البحث والتطوير</a></li>
+                    <li><a href="digital-transformation.html">التحول الرقمي</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>خدمة العملاء</h3>
+                <ul>
+                    <li><a href="returns-exchange-policy.html">سياسة الإرجاع والاستبدال</a></li>
+                    <li><a href="shipping-policy.html">سياسة الشحن</a></li>
+                    <li><a href="contact.html">اتصل بنا</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>النشرة البريدية</h3>
+                <p>اشترك علشان توصلك أحدث العروض</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="اكتب إيميلك هنا">
+                    <button type="submit">اشترك</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>جميع الحقوق محفوظة © 2024 سويت هوم</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

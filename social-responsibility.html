@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المسؤولية الاجتماعية - سويت هوم</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon/favicon.svg">
+    <style>
+        .social-responsibility-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .social-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .social-header h1 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .social-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .social-main-content {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .social-section {
+            margin-bottom: 40px;
+        }
+
+        .social-section h2 {
+            color: #e60000;
+            border-bottom: 2px solid #e60000;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .initiative-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .initiative-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .initiative-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .initiative-card i {
+            font-size: 48px;
+            color: #e60000;
+            margin-bottom: 15px;
+        }
+
+        .initiative-card h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .impact-section {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .impact-stats {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+
+        .impact-stat {
+            flex: 1;
+            padding: 15px;
+        }
+
+        .impact-stat h3 {
+            color: #e60000;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .impact-stat p {
+            color: #666;
+        }
+
+        .social-sidebar {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            height: fit-content;
+        }
+
+        .partner-logos {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .partner-logo {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s;
+        }
+
+        .partner-logo:hover {
+            transform: scale(1.1);
+        }
+
+        .partner-logo img {
+            max-width: 100%;
+            max-height: 80px;
+        }
+
+        .get-involved {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .get-involved h3 {
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e60000;
+            padding-bottom: 10px;
+        }
+
+        .involvement-btn {
+            background: #e60000;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.3s;
+            margin-top: 15px;
+        }
+
+        .involvement-btn:hover {
+            background: #cc0000;
+        }
+
+        .contact-social {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .contact-social h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .contact-btn {
+            background: #e60000;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.3s;
+        }
+
+        .contact-btn:hover {
+            background: #cc0000;
+        }
+
+        @media (max-width: 1024px) {
+            .social-content {
+                grid-template-columns: 1fr;
+            }
+
+            .initiative-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .impact-stats {
+                flex-direction: column;
+            }
+
+            .partner-logos {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .initiative-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="social-responsibility-container">
+            <div class="social-header">
+                <h1>المسؤولية الاجتماعية لسويت هوم</h1>
+                <p>نحن نؤمن بأن نجاحنا مرتبط بنجاح مجتمعنا</p>
+            </div>
+
+            <div class="social-content">
+                <div class="social-main-content">
+                    <div class="social-section">
+                        <h2>مبادراتنا الاجتماعية</h2>
+                        <div class="initiative-grid">
+                            <div class="initiative-card">
+                                <i class="fas fa-home"></i>
+                                <h3>دعم المنازل المتعففة</h3>
+                                <p>توفير الأجهزة المنزلية للأسر المحتاجة</p>
+                            </div>
+                            <div class="initiative-card">
+                                <i class="fas fa-graduation-cap"></i>
+                                <h3>منح دراسية</h3>
+                                <p>دعم التعليم للطلاب المتفوقين</p>
+                            </div>
+                            <div class="initiative-card">
+                                <i class="fas fa-hands-helping"></i>
+                                <h3>التطوع المجتمعي</h3>
+                                <p>برامج تطوعية منتظمة</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-section">
+                        <h2>تأثيرنا الاجتماعي</h2>
+                        <div class="impact-section">
+                            <div class="impact-stats">
+                                <div class="impact-stat">
+                                    <h3>500+</h3>
+                                    <p>أسرة مستفيدة</p>
+                                </div>
+                                <div class="impact-stat">
+                                    <h3>100+</h3>
+                                    <p>طالب مدعوم</p>
+                                </div>
+                                <div class="impact-stat">
+                                    <h3>50+</h3>
+                                    <p>مبادرة مجتمعية</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-section">
+                        <h2>شركاؤنا في المسؤولية الاجتماعية</h2>
+                        <div class="partner-logos">
+                            <div class="partner-logo">
+                                <img src="assets/images/partners/charity1.png" alt="شريك 1">
+                            </div>
+                            <div class="partner-logo">
+                                <img src="assets/images/partners/charity2.png" alt="شريك 2">
+                            </div>
+                            <div class="partner-logo">
+                                <img src="assets/images/partners/charity3.png" alt="شريك 3">
+                            </div>
+                            <div class="partner-logo">
+                                <img src="assets/images/partners/charity4.png" alt="شريك 4">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="social-sidebar">
+                    <div class="get-involved">
+                        <h3>كيف يمكنك المشاركة</h3>
+                        <p>انضم إلينا في مساعدة المجتمع</p>
+                        <button class="involvement-btn">
+                            <i class="fas fa-hand-holding-heart"></i>
+                            تطوع الآن
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-social">
+                <h3>هل لديك اقتراح للمسؤولية الاجتماعية؟</h3>
+                <a href="#" class="contact-btn">
+                    <i class="fas fa-envelope"></i>
+                    تواصل معنا
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // زر التطوع
+        document.querySelector('.involvement-btn').addEventListener('click', function() {
+            alert('شكرًا لاهتمامك بالتطوع. سنتواصل معك قريبًا');
+        });
+
+        // زر التواصل
+        document.querySelector('.contact-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('سيتم توجيهك إلى صفحة التواصل');
+        });
+    </script>
+</body>
+</html>

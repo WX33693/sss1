@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سياسة الشحن - سويت هوم</title>
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon/favicon.svg">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .shipping-policy {
+            padding: 50px 0;
+            background-color: #f9f9f9;
+        }
+        .policy-section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .policy-content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .policy-content h1 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+        }
+        .policy-content h2 {
+            color: var(--secondary-color);
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        .policy-content ul, 
+        .policy-content ol {
+            margin-right: 30px;
+            line-height: 1.7;
+        }
+        .shipping-rates {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .shipping-card {
+            background: var(--light-bg);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .shipping-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .shipping-card i {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        .shipping-card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+        .tracking-section {
+            margin-top: 30px;
+            background: var(--light-bg);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .tracking-section h2 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        .tracking-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .tracking-form input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px 0 0 5px;
+        }
+        .tracking-form button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <!-- Include the same header as index.html -->
+        {{ header from index.html }}
+    </header>
+
+    <main class="shipping-policy">
+        <section class="policy-section">
+            <div class="container">
+                <div class="policy-content">
+                    <h1>سياسة الشحن في سويت هوم</h1>
+                    
+                    <h2>معلومات الشحن الأساسية</h2>
+                    <ul>
+                        <li>نوفر خدمة الشحن في جميع أنحاء جمهورية مصر العربية</li>
+                        <li>مدة الشحن القياسية: 2-5 أيام عمل</li>
+                        <li>يتم إرسال رسالة نصية وبريد إلكتروني لتأكيد الشحنة</li>
+                    </ul>
+
+                    <h2>رسوم الشحن</h2>
+                    <div class="shipping-rates">
+                        <div class="shipping-card">
+                            <i class="fas fa-box"></i>
+                            <h3>الشحن المجاني</h3>
+                            <p>للطلبات التي تتجاوز 1000 جنيه مصري</p>
+                        </div>
+                        <div class="shipping-card">
+                            <i class="fas fa-truck"></i>
+                            <h3>رسوم الشحن القياسية</h3>
+                            <p>50 جنيه مصري للطلبات أقل من 1000 جنيه</p>
+                        </div>
+                        <div class="shipping-card">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h3>مناطق الشحن</h3>
+                            <p>القاهرة الكبرى، الإسكندرية، والمحافظات الرئيسية</p>
+                        </div>
+                    </div>
+
+                    <h2>شروط الشحن</h2>
+                    <ol>
+                        <li>يتم احتساب رسوم الشحن عند إتمام عملية الشراء</li>
+                        <li>الأسعار تشمل التغليف والتوصيل</li>
+                        <li>يمكن تتبع الشحنة من خلال رقم التتبع الخاص بك</li>
+                        <li>في حالة عدم توفر المنتج، سيتم إخطارك فورًا</li>
+                    </ol>
+
+                    <h2>الشحن الدولي</h2>
+                    <p>حاليًا، نقدم خدمات الشحن داخل مصر فقط. سنعلن عن خدمات الشحن الدولي في المستقبل.</p>
+                </div>
+
+                <div class="tracking-section">
+                    <h2>تتبع شحنتك</h2>
+                    <form class="tracking-form">
+                        <input type="text" placeholder="أدخل رقم التتبع الخاص بك" required>
+                        <button type="submit">تتبع الشحنة</button>
+                    </form>
+                </div>
+                <div class="contact-method">
+                    <i class="fas fa-envelope"></i>
+                    <span>wx33693@gmail.com</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <!-- Include the same footer as index.html -->
+        {{ footer from index.html }}
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.querySelector('.tracking-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const trackingNumber = this.querySelector('input').value;
+            alert(`جاري البحث عن الشحنة رقم: ${trackingNumber}`);
+        });
+    </script>
+</body>
+</html>

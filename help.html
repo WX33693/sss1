@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المساعدة والدعم - سويت هوم</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon/favicon.svg">
+    <style>
+        .help-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: 30px;
+        }
+
+        .help-sidebar {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            height: fit-content;
+        }
+
+        .help-menu {
+            list-style: none;
+            padding: 0;
+        }
+
+        .help-menu li {
+            margin-bottom: 10px;
+        }
+
+        .help-menu a {
+            display: block;
+            padding: 10px 15px;
+            color: #333;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .help-menu a:hover,
+        .help-menu a.active {
+            background: #f4f4f4;
+            color: #e60000;
+        }
+
+        .help-content {
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e60000;
+            padding-bottom: 10px;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .faq-answer {
+            display: none;
+            margin-top: 10px;
+            color: #666;
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+        }
+
+        .submit-btn {
+            background: #e60000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .support-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        .support-contact {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            margin-right: 10px;
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #e60000;
+        }
+
+        @media (max-width: 768px) {
+            .help-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="help-container">
+            <div class="help-sidebar">
+                <ul class="help-menu">
+                    <li><a href="#" class="active" data-section="faq"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+                    <li><a href="#" data-section="contact"><i class="fas fa-headset"></i> اتصل بنا</a></li>
+                    <li><a href="#" data-section="returns"><i class="fas fa-undo"></i> سياسة الاسترجاع</a></li>
+                    <li><a href="#" data-section="shipping"><i class="fas fa-truck"></i> سياسة الشحن</a></li>
+                </ul>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/0WX33693" target="_blank" class="facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/wx33_6/" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://x.com/wx33693" target="_blank" class="twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.youtube.com/@wx33693" target="_blank" class="youtube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="help-content">
+                <div id="faq" class="section active">
+                    <h2 class="section-title">الأسئلة الشائعة</h2>
+                    <div class="faq-list">
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                كيف يمكنني تتبع طلبي؟
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                يمكنك تتبع طلبك من خلال صفحة الملف الشخصي في قسم "طلباتي". سيتم عرض حالة الطلب وتفاصيل الشحن.
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                ما هي سياسة الاسترجاع؟
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                يمكنك إرجاع المنتج خلال 14 يوم من تاريخ الشراء مع الاحتفاظ بالفاتورة والمنتج في حالته الأصلية.
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                هل يوجد شحن مجاني؟
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                نعم، الشحن مجاني للطلبات التي تتجاوز 1000 جنيه في جميع أنحاء مصر.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="contact" class="section" style="display:none;">
+                    <h2 class="section-title">اتصل بنا</h2>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label>الاسم الكامل</label>
+                            <input type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label>البريد الإلكتروني</label>
+                            <input type="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>الموضوع</label>
+                            <input type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label>رسالتك</label>
+                            <textarea required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">إرسال الرسالة</button>
+                    </form>
+
+                    <div class="support-info">
+                        <h3>معلومات التواصل</h3>
+                        <div class="support-contact">
+                            <div>
+                                <i class="fas fa-phone"></i> خدمة العملاء: 01025744780
+                            </div>
+                            <div>
+                                <i class="fas fa-envelope"></i> البريد الإلكتروني: wx33693@gmail.com
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="returns" class="section" style="display:none;">
+                    <h2 class="section-title">سياسة الاسترجاع</h2>
+                    <p>يمكنك إرجاع المنتجات وفقًا للشروط التالية:</p>
+                    <ul>
+                        <li>فترة الاسترجاع: 14 يوم من تاريخ الشراء</li>
+                        <li>يجب أن يكون المنتج في حالته الأصلية</li>
+                        <li>الاحتفاظ بالفاتورة الأصلية</li>
+                        <li>لا يشمل الاسترجاع المنتجات المستعملة أو التالفة</li>
+                    </ul>
+                </div>
+
+                <div id="shipping" class="section" style="display:none;">
+                    <h2 class="section-title">سياسة الشحن</h2>
+                    <p>نقدم خدمات شحن سريعة وموثوقة:</p>
+                    <ul>
+                        <li>الشحن المجاني للطلبات التي تتجاوز 1000 جنيه</li>
+                        <li>مدة الشحن: 3-5 أيام عمل</li>
+                        <li>التغطية: جميع محافظات مصر</li>
+                        <li>تتبع الشحنة متاح عبر رقم التتبع</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // تبديل الأقسام
+        document.querySelectorAll('.help-menu a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const sectionId = this.getAttribute('data-section');
+                
+                // إخفاء جميع الأقسام
+                document.querySelectorAll('.section').forEach(section => {
+                    section.style.display = 'none';
+                });
+                
+                // إزالة الكلاس النشط من جميع العناصر
+                document.querySelectorAll('.help-menu a').forEach(menuLink => {
+                    menuLink.classList.remove('active');
+                });
+                
+                // عرض القسم المحدد
+                document.getElementById(sectionId).style.display = 'block';
+                this.classList.add('active');
+            });
+        });
+
+        // الأسئلة الشائعة
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                const icon = this.querySelector('i');
+                
+                if (answer.style.display === 'block') {
+                    answer.style.display = 'none';
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                } else {
+                    answer.style.display = 'block';
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                }
+            });
+        });
+
+        // نموذج الاتصال
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('شكرًا لتواصلك معنا. سنقوم بالرد عليك قريبًا.');
+        });
+    </script>
+</body>
+</html>

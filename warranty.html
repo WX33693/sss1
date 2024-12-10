@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الضمان وخدمة ما بعد البيع - سويت هوم</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon/favicon.svg">
+    <style>
+        .warranty-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .warranty-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .warranty-header h1 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .warranty-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .warranty-details {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .warranty-section {
+            margin-bottom: 30px;
+        }
+
+        .warranty-section h2 {
+            color: #e60000;
+            border-bottom: 2px solid #e60000;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .warranty-section p {
+            margin-bottom: 15px;
+            color: #444;
+            line-height: 1.8;
+        }
+
+        .warranty-section ul {
+            list-style-type: disc;
+            padding-right: 30px;
+            margin-bottom: 15px;
+        }
+
+        .warranty-categories {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .warranty-category {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .warranty-category:hover {
+            transform: translateY(-10px);
+        }
+
+        .warranty-category i {
+            font-size: 48px;
+            color: #e60000;
+            margin-bottom: 15px;
+        }
+
+        .warranty-category h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .warranty-steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .warranty-step {
+            text-align: center;
+            flex: 1;
+            padding: 0 15px;
+            position: relative;
+        }
+
+        .warranty-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 100%;
+            width: 30px;
+            height: 2px;
+            background: #e60000;
+        }
+
+        .warranty-step i {
+            font-size: 36px;
+            color: #e60000;
+            margin-bottom: 15px;
+        }
+
+        .warranty-sidebar {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            height: fit-content;
+        }
+
+        .warranty-contact {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .warranty-contact h3 {
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e60000;
+            padding-bottom: 10px;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-method i {
+            color: #e60000;
+            margin-left: 15px;
+            font-size: 24px;
+        }
+
+        .warranty-faq {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .warranty-faq h3 {
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e60000;
+            padding-bottom: 10px;
+        }
+
+        .warranty-faq-item {
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .warranty-faq-item:hover {
+            color: #e60000;
+        }
+
+        .contact-warranty {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .contact-warranty h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .contact-btn {
+            background: #e60000;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.3s;
+        }
+
+        .contact-btn:hover {
+            background: #cc0000;
+        }
+
+        @media (max-width: 1024px) {
+            .warranty-content {
+                grid-template-columns: 1fr;
+            }
+
+            .warranty-categories {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .warranty-steps {
+                flex-direction: column;
+            }
+
+            .warranty-step {
+                margin-bottom: 20px;
+            }
+
+            .warranty-step:not(:last-child)::after {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .warranty-categories {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="warranty-container">
+            <div class="warranty-header">
+                <h1>الضمان وخدمة ما بعد البيع</h1>
+                <p>نحرص على رضاك ونقدم أفضل خدمات ما بعد البيع</p>
+            </div>
+
+            <div class="warranty-content">
+                <div class="warranty-details">
+                    <div class="warranty-section">
+                        <h2>سياسة الضمان</h2>
+                        <p>نقدم ضمانًا شاملًا لجميع منتجاتنا للحفاظ على جودة وموثوقية المنتجات.</p>
+                        
+                        <div class="warranty-categories">
+                            <div class="warranty-category">
+                                <i class="fas fa-tv"></i>
+                                <h3>الأجهزة الإلكترونية</h3>
+                                <p>ضمان لمدة سنة</p>
+                            </div>
+                            <div class="warranty-category">
+                                <i class="fas fa-couch"></i>
+                                <h3>الأثاث</h3>
+                                <p>ضمان لمدة سنتين</p>
+                            </div>
+                            <div class="warranty-category">
+                                <i class="fas fa-blender"></i>
+                                <h3>أجهزة المطبخ</h3>
+                                <p>ضمان لمدة سنة</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="warranty-section">
+                        <h2>خطوات تقديم طلب الضمان</h2>
+                        <div class="warranty-steps">
+                            <div class="warranty-step">
+                                <i class="fas fa-file-alt"></i>
+                                <h3>تسجيل الطلب</h3>
+                                <p>قم بتعبئة نموذج الضمان</p>
+                            </div>
+                            <div class="warranty-step">
+                                <i class="fas fa-box-open"></i>
+                                <h3>فحص المنتج</h3>
+                                <p>سنقوم بفحص المنتج</p>
+                            </div>
+                            <div class="warranty-step">
+                                <i class="fas fa-tools"></i>
+                                <h3>الإصلاح</h3>
+                                <p>إصلاح أو استبدال المنتج</p>
+                            </div>
+                            <div class="warranty-step">
+                                <i class="fas fa-check-circle"></i>
+                                <h3>الاستلام</h3>
+                                <p>استلام المنتج</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="warranty-section">
+                        <h2>شروط الضمان</h2>
+                        <ul>
+                            <li>سريان الضمان للاستخدام العادي</li>
+                            <li>عدم وجود تلف متعمد</li>
+                            <li>وجود فاتورة الشراء الأصلية</li>
+                            <li>عدم التعديل أو الفتح من قبل الزبون</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="warranty-sidebar">
+                    <div class="warranty-contact">
+                        <h3>للتواصل بخصوص الضمان</h3>
+                        <div class="contact-method">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <strong>خدمة الضمان</strong>
+                                <p>01025744780 (داخلي 2)</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>البريد الإلكتروني</strong>
+                                <p>wx33693@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="warranty-faq">
+                        <h3>أسئلة شائعة</h3>
+                        <div class="warranty-faq-item">كيف أقدم طلب ضمان؟</div>
+                        <div class="warranty-faq-item">ما هي مدة الضمان؟</div>
+                        <div class="warranty-faq-item">هل يغطي الضمان التلف العرضي؟</div>
+                        <div class="warranty-faq-item">كيف يمكنني متابعة طلب الضمان؟</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-warranty">
+                <h3>هل لديك استفسارات حول الضمان؟</h3>
+                <a href="#" class="contact-btn">
+                    <i class="fas fa-headset"></i>
+                    تواصل معنا
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // تفعيل الأسئلة الشائعة
+        document.querySelectorAll('.warranty-faq-item').forEach(item => {
+            item.addEventListener('click', function() {
+                alert(`سؤال: ${this.textContent}`);
+            });
+        });
+
+        // زر التواصل
+        document.querySelector('.contact-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('سيتم توجيهك إلى قسم خدمة الضمان');
+        });
+    </script>
+</body>
+</html>

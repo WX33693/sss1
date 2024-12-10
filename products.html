@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المنتجات - سويت هوم</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon/favicon.svg">
+    <style>
+        .products-container {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .filters-sidebar {
+            width: 250px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .filter-section {
+            margin-bottom: 20px;
+        }
+
+        .filter-section h3 {
+            margin-bottom: 10px;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .filter-group {
+            margin-bottom: 15px;
+        }
+
+        .filter-group label {
+            display: block;
+            margin-bottom: 8px;
+            cursor: pointer;
+        }
+
+        .price-range input {
+            width: 100%;
+            margin: 10px 0;
+        }
+
+        .products-grid {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            position: relative;
+            padding-top: 100%;
+            margin-bottom: 15px;
+        }
+
+        .product-image img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .discount-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #e60000;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .product-title {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #333;
+            height: 40px;
+            overflow: hidden;
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .current-price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #e60000;
+        }
+
+        .old-price {
+            font-size: 14px;
+            color: #999;
+            text-decoration: line-through;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            padding: 10px;
+            background: #e60000;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Cairo', sans-serif;
+            transition: background 0.3s;
+        }
+
+        .add-to-cart:hover {
+            background: #cc0000;
+        }
+
+        .products-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .sort-options {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .sort-select {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .view-options {
+            display: flex;
+            gap: 10px;
+        }
+
+        .view-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .view-btn {
+            padding: 8px;
+            background: #f5f5f5;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .view-btn.active {
+            background: #e60000;
+            color: white;
+        }
+
+        .pagination {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .prev-page, .next-page {
+            padding: 8px;
+            background: #f5f5f5;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .current-page {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        @media (max-width: 768px) {
+            .products-container {
+                flex-direction: column;
+            }
+
+            .filters-sidebar {
+                width: 100%;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            z-index: 1000;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .add-to-favorites {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .add-to-favorites.active {
+            color: red;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- الهيدر -->
+    <header>
+        <div class="header-top">
+            <div class="contact-info">
+                <span><i class="fas fa-phone"></i> اتصل بينا: 19999</span>
+                <span><i class="fas fa-clock"></i> خدمة العملا 24 ساعة</span>
+            </div>
+            <div class="user-actions">
+                <a href="login.html"><i class="fas fa-user"></i> دخول</a>
+                <span>|</span>
+                <a href="register.html"><i class="fas fa-user-plus"></i> حساب جديد</a>
+            </div>
+        </div>
+
+        <div class="header-main">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/logo.png" alt="سويت هوم">
+                </a>
+            </div>
+            <div class="search-bar">
+                <form action="/search" method="get">
+                    <input type="text" placeholder="دور على اللي نفسك فيه...">
+                    <button type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+            <div class="cart-favorites-container">
+                <div class="cart-icon">
+                    <a href="cart.html">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+                <div class="favorites-icon">
+                    <a href="favorites.html">
+                        <i class="far fa-heart"></i>
+                        <span class="favorites-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">الرئيسية</a></li>
+                <li class="dropdown">
+                    <a href="products.html" class="active">الأقسام</a>
+                    <div class="dropdown-content">
+                        <a href="home-appliances.html">الأجهزة المنزلية</a>
+                        <a href="electronics.html">الإلكترونيات</a>
+                        <a href="kitchen-appliances.html">أجهزة المطبخ</a>
+                        <a href="smart-home.html">المنزل الذكي</a>
+                        <a href="gardening.html">الحدائق</a>
+                        <a href="cleaning-tools.html">أدوات التنظيف</a>
+                        <a href="bathroom-equipment.html">معدات الحمام</a>
+                        <a href="bedroom-accessories.html">أدوات غرفة النوم</a>
+                        <a href="lighting.html">الإضاءة</a>
+                        <a href="decoration.html">الديكور</a>
+                        <a href="furniture.html">الأثاث</a>
+                        <a href="kitchen-tools.html">أدوات المطبخ</a>
+                    </div>
+                </li>
+                <li><a href="warranty.html">الضمان</a></li>
+                <li><a href="contact.html">انضم إلينا</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- عنوان الصفحة -->
+        <div class="page-header">
+            <div class="container">
+                <h1>المنتجات</h1>
+                <div class="breadcrumb">
+                    <a href="index.html">الرئيسية</a>
+                    <span>/</span>
+                    <span>المنتجات</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="products-container">
+            <!-- سايدبار الفلاتر -->
+            <aside class="filters-sidebar">
+                <div class="filter-group">
+                    <h4>الفئات</h4>
+                    <div class="filter-options">
+                        <label>
+                            <input type="checkbox" name="category" value="kitchen-appliances">
+                            أجهزة المطبخ
+                        </label>
+                        <label>
+                            <input type="checkbox" name="category" value="home-appliances">
+                            الأجهزة المنزلية
+                        </label>
+                        <label>
+                            <input type="checkbox" name="category" value="electronics">
+                            الإلكترونيات
+                        </label>
+                        <label>
+                            <input type="checkbox" name="category" value="smart-home">
+                            المنزل الذكي
+                        </label>
+                        <label>
+                            <input type="checkbox" name="category" value="gardening">
+                            الحدائق
+                        </label>
+                        <label>
+                            <input type="checkbox" name="category" value="cleaning-tools">
+                            أدوات التنظيف
+                        </label>
+                        <label>
+                            <input type="checkbox" name="category" value="bathroom-equipment">
+                            معدات الحمام
+                        </label>
+                        <label>
+                            <input type="checkbox" name="category" value="bedroom-accessories">
+                            أدوات غرفة النوم
+                        </label>
+                        <label>
+                            <input type="checkbox" name="category" value="lighting">
+                            الإضاءة
+                        </label>
+                        <label>
+                            <input type="checkbox" name="category" value="decoration">
+                            الديكور
+                        </label>
+                        <label>
+                            <input type="checkbox" name="category" value="furniture">
+                            الأثاث
+                        </label>
+                        <label>
+                            <input type="checkbox" name="category" value="kitchen-tools">
+                            أدوات المطبخ
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h4>العلامات التجارية</h4>
+                    <div class="filter-options">
+                        <label>
+                            <input type="checkbox" name="brand" value="samsung">
+                            سامسونج
+                        </label>
+                        <label>
+                            <input type="checkbox" name="brand" value="lg">
+                            إل جي
+                        </label>
+                        <label>
+                            <input type="checkbox" name="brand" value="bosch">
+                            بوش
+                        </label>
+                        <label>
+                            <input type="checkbox" name="brand" value="apple">
+                            آبل
+                        </label>
+                        <label>
+                            <input type="checkbox" name="brand" value="panasonic">
+                            باناسونيك
+                        </label>
+                        <label>
+                            <input type="checkbox" name="brand" value="sharp">
+                            شارب
+                        </label>
+                        <label>
+                            <input type="checkbox" name="brand" value="midea">
+                            ميديا
+                        </label>
+                        <label>
+                            <input type="checkbox" name="brand" value="toshiba">
+                            توشيبا
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h4>السعر</h4>
+                    <div class="price-range">
+                        <input type="range" min="0" max="10000" step="100" id="price-range">
+                        <div class="price-labels">
+                            <span id="min-price">0</span>
+                            <span id="max-price">10000</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- قسم المنتجات -->
+            <div class="products-section">
+                <div class="products-header">
+                    <div class="sort-options">
+                        <span>ترتيب حسب:</span>
+                        <select class="sort-select">
+                            <option value="newest">الأحدث</option>
+                            <option value="price-asc">السعر: من الأقل للأعلى</option>
+                            <option value="price-desc">السعر: من الأعلى للأقل</option>
+                            <option value="discount">الأكثر تخفيضًا</option>
+                            <option value="popularity">الأكثر شعبية</option>
+                        </select>
+                    </div>
+                    <div class="view-options">
+                        <span>عرض:</span>
+                        <div class="view-buttons">
+                            <button class="view-btn active" data-view="grid">
+                                <i class="fas fa-th"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="pagination">
+                        <button class="prev-page"><i class="fas fa-chevron-right"></i></button>
+                        <span class="current-page">1 / 2</span>
+                        <button class="next-page"><i class="fas fa-chevron-left"></i></button>
+                    </div>
+                </div>
+
+                <div class="products-grid">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- الفوتر -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>عن سويت هوم</h3>
+                <p>أكبر متجر للأدوات المنزلية في مصر</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/0WX33693" target="_blank" class="facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/wx33_6/" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://x.com/wx33693" target="_blank" class="twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.youtube.com/@wx33693" target="_blank" class="youtube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>روابط مهمة</h3>
+                <ul>
+                    <li><a href="about.html">عن الشركة</a></li>
+                    <li><a href="terms.html">الشروط والأحكام</a></li>
+                    <li><a href="privacy.html">سياسة الخصوصية</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>خدمة العملا</h3>
+                <ul>
+                    <li><a href="contact.html">اتصل بينا</a></li>
+                    <li><a href="shipping.html">سياسة الشحن</a></li>
+                    <li><a href="returns.html">الإرجاع والاستبدال</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>النشرة البريدية</h3>
+                <p>اشترك علشان توصلك أحدث العروض</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="اكتب إيميلك هنا">
+                    <button type="submit">اشترك</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>جميع الحقوق محفوظة © 2024 سويت هوم</p>
+        </div>
+    </footer>
+
+    <script>
+        // بيانات المنتجات (يمكن استبدالها لاحقًا بالبيانات من الخادم)
+        const products = [
+            {
+                id: 1,
+                name: "ثلاجة سامسونج الذكية",
+                brand: "سامسونج",
+                category: "الأجهزة المنزلية",
+                price: 12999,
+                discount: 15,
+                image: "assets/images/products/refrigerator-samsung.jpg",
+                date: "2024-01-15",
+                popularity: 85
+            },
+            {
+                id: 2,
+                name: "غسالة ال جي أوتوماتيك",
+                brand: "ال جي",
+                category: "الأجهزة المنزلية",
+                price: 8500,
+                discount: 20,
+                image: "assets/images/products/washing-machine-lg.jpg",
+                date: "2024-02-10",
+                popularity: 92
+            },
+            {
+                id: 3,
+                name: "مايكروويف باناسونيك",
+                brand: "باناسونيك",
+                category: "الأجهزة المنزلية",
+                price: 3500,
+                discount: 25,
+                image: "assets/images/products/microwave-panasonic.jpg",
+                date: "2024-01-20",
+                popularity: 78
+            },
+            {
+                id: 4,
+                name: "خلاط كينوود متعدد الوظائف",
+                brand: "كينوود",
+                category: "الأجهزة المنزلية",
+                price: 2200,
+                discount: 10,
+                image: "assets/images/products/blender-kenwood.jpg",
+                date: "2024-02-05",
+                popularity: 65
+            },
+            {
+                id: 5,
+                name: "قلاية هوائية فيليبس",
+                brand: "فيليبس",
+                category: "الأجهزة المنزلية",
+                price: 4800,
+                discount: 18,
+                image: "assets/images/products/air-fryer-philips.jpg",
+                date: "2024-01-30",
+                popularity: 88
+            },
+            {
+                id: 6,
+                name: "تلفزيون سامسونج 4K",
+                brand: "سامسونج",
+                category: "الإلكترونيات",
+                price: 8999,
+                discount: 20,
+                image: "assets/images/products/smart-tv-samsung.jpg",
+                date: "2024-02-15",
+                popularity: 95
+            },
+            {
+                id: 7,
+                name: "ماكينة قهوة ديلونجي",
+                brand: "ديلونجي",
+                category: "الأجهزة المنزلية",
+                price: 5500,
+                discount: 15,
+                image: "assets/images/products/coffee-maker-delonghi.jpg",
+                date: "2024-01-25",
+                popularity: 70
+            },
+            {
+                id: 8,
+                name: "غلاية كهربائية مولينكس",
+                brand: "مولينكس",
+                category: "الأجهزة المنزلية",
+                price: 1200,
+                discount: 10,
+                image: "assets/images/products/electric-kettle-moulinex.jpg",
+                date: "2024-02-01",
+                popularity: 60
+            },
+            {
+                id: 9,
+                name: "طباخ الأرز زوجيروشي",
+                brand: "زوجيروشي",
+                category: "الأجهزة المنزلية",
+                price: 3800,
+                discount: 22,
+                image: "assets/images/products/rice-cooker-zojirushi.jpg",
+                date: "2024-01-10",
+                popularity: 75
+            },
+            {
+                id: 10,
+                name: "منقي هواء دايسون",
+                brand: "دايسون",
+                category: "الأجهزة المنزلية",
+                price: 7500,
+                discount: 30,
+                image: "assets/images/products/air-purifier-dyson.jpg",
+                date: "2024-02-20",
+                popularity: 82
+            },
+            {
+                id: 11,
+                name: "خلاط كيتشن آيد المتطور",
+                brand: "كيتشن آيد",
+                category: "الأجهزة المنزلية",
+                price: 9200,
+                discount: 25,
+                image: "assets/images/products/stand-mixer-kitchenaid.jpg",
+                date: "2024-01-05",
+                popularity: 90
+            },
+            {
+                id: 12,
+                name: "مكبر صوت جوجل الذكي",
+                brand: "جوجل",
+                category: "الإلكترونيات",
+                price: 2500,
+                discount: 15,
+                image: "assets/images/products/smart-speaker-google.jpg",
+                date: "2024-03-20",
+                popularity: 75
+            }
+        ];
+
+        // تهيئة المتغيرات العامة
+        let cart = [];
+        let favorites = [];
+
+        // دالة لإضافة منتج للسلة
+        function addToCart(product) {
+            // التحقق من وجود المنتج بالفعل في السلة
+            const existingProduct = cart.find(item => item.id === product.id);
+            
+            if (existingProduct) {
+                existingProduct.quantity += 1;
+            } else {
+                cart.push({...product, quantity: 1});
+            }
+
+            // تحديث عداد السلة
+            updateCartCount();
+
+            // إظهار رسالة نجاح
+            showNotification(`تمت إضافة ${product.name} إلى السلة`);
+
+            // تحديث localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        // دالة لإضافة منتج للمفضلة
+        function toggleFavorite(product) {
+            const index = favorites.findIndex(item => item.id === product.id);
+            
+            if (index !== -1) {
+                // إزالة من المفضلة
+                favorites.splice(index, 1);
+                showNotification(`تمت إزالة ${product.name} من المفضلة`);
+            } else {
+                // إضافة للمفضلة
+                favorites.push(product);
+                showNotification(`تمت إضافة ${product.name} للمفضلة`);
+            }
+
+            // تحديث localStorage
+            localStorage.setItem('favorites', JSON.stringify(favorites));
+        }
+
+        // دالة لتحديث عداد السلة
+        function updateCartCount() {
+            const cartCountElement = document.querySelector('.cart-count');
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCountElement.textContent = totalItems;
+        }
+
+        // دالة لعرض الإشعارات
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // دالة لعرض المنتجات مع إضافة أحداث السلة والمفضلة
+        function displayProducts(sortedProducts) {
+            const productsGrid = document.querySelector('.products-grid');
+            productsGrid.innerHTML = ''; // مسح المحتوى الحالي
+
+            sortedProducts.forEach(product => {
+                // التحقق من وجود المنتج في المفضلة
+                const isFavorite = favorites.some(item => item.id === product.id);
+
+                const productCard = `
+                    <div class="product-card" data-product-id="${product.id}">
+                        <img src="${product.image}" alt="${product.name}">
+                        <h3>${product.name}</h3>
+                        <div class="product-details">
+                            <span class="brand">${product.brand}</span>
+                            <span class="category">${product.category}</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">${product.price.toLocaleString()} ج.م</span>
+                            <span class="discount">خصم ${product.discount}%</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart" onclick="addToCart(${JSON.stringify(product).replace(/"/g, '&quot;')})">أضف للسلة</button>
+                            <button class="add-to-favorites ${isFavorite ? 'active' : ''}" onclick="toggleFavorite(${JSON.stringify(product).replace(/"/g, '&quot;')})">
+                                ${isFavorite ? '♥' : '♡'}
+                            </button>
+                        </div>
+                    </div>
+                `;
+                productsGrid.insertAdjacentHTML('beforeend', productCard);
+            });
+        }
+
+        // دالة لترتيب المنتجات
+        function updateProducts() {
+            const sortSelect = document.querySelector('.sort-select');
+            let sortedProducts = [...products]; // نسخة من المنتجات
+
+            switch(sortSelect.value) {
+                case 'newest':
+                    sortedProducts.sort((a, b) => new Date(b.date) - new Date(a.date));
+                    break;
+                case 'price-asc':
+                    sortedProducts.sort((a, b) => a.price - b.price);
+                    break;
+                case 'price-desc':
+                    sortedProducts.sort((a, b) => b.price - a.price);
+                    break;
+                case 'discount':
+                    sortedProducts.sort((a, b) => b.discount - a.discount);
+                    break;
+                case 'popularity':
+                    sortedProducts.sort((a, b) => b.popularity - a.popularity);
+                    break;
+                default:
+                    break;
+            }
+
+            displayProducts(sortedProducts);
+        }
+
+        // تحديث المنتجات عند تغيير الترتيب
+        document.querySelector('.sort-select').addEventListener('change', updateProducts);
+
+        // استرجاع البيانات من localStorage عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedCart = localStorage.getItem('cart');
+            const savedFavorites = localStorage.getItem('favorites');
+
+            if (savedCart) {
+                cart = JSON.parse(savedCart);
+                updateCartCount();
+            }
+
+            if (savedFavorites) {
+                favorites = JSON.parse(savedFavorites);
+            }
+
+            // عرض المنتجات الأولية
+            displayProducts(products);
+        });
+
+        // التنقل بين الصفحات
+        const prevPageBtn = document.querySelector('.prev-page');
+        const nextPageBtn = document.querySelector('.next-page');
+        const currentPageSpan = document.querySelector('.current-page');
+        let currentPage = 1;
+        const totalPages = 2;
+
+        prevPageBtn.addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                updateCurrentPage();
+            }
+        });
+
+        nextPageBtn.addEventListener('click', () => {
+            if (currentPage < totalPages) {
+                currentPage++;
+                updateCurrentPage();
+            }
+        });
+
+        function updateCurrentPage() {
+            currentPageSpan.textContent = `${currentPage} / ${totalPages}`;
+            // هنا يمكن إضافة منطق تحميل المنتجات للصفحة الحالية
+        }
+
+        // دالة مشتركة لإدارة المنتجات
+        function manageProductPage() {
+            const pageUrl = window.location.pathname;
+            
+            // استرجاع البيانات من localStorage
+            const savedCart = JSON.parse(localStorage.getItem('cart') || '[]');
+            const savedFavorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+
+            // صفحة السلة
+            if (pageUrl.includes('cart.html')) {
+                const cartContainer = document.querySelector('.cart-items');
+                if (cartContainer) {
+                    cartContainer.innerHTML = ''; // مسح المحتوى الحالي
+                    
+                    if (savedCart.length === 0) {
+                        cartContainer.innerHTML = `
+                            <div class="empty-cart">
+                                <p>السلة فارغة حاليًا</p>
+                                <a href="products.html" class="btn-continue-shopping">متابعة التسوق</a>
+                            </div>
+                        `;
+                    } else {
+                        savedCart.forEach(product => {
+                            const cartItemHTML = `
+                                <div class="cart-item" data-product-id="${product.id}">
+                                    <img src="${product.image}" alt="${product.name}">
+                                    <div class="cart-item-details">
+                                        <h3>${product.name}</h3>
+                                        <p>السعر: ${product.price.toLocaleString()} ج.م</p>
+                                        <div class="quantity-control">
+                                            <button class="decrease-qty">-</button>
+                                            <span class="quantity">${product.quantity}</span>
+                                            <button class="increase-qty">+</button>
+                                        </div>
+                                        <button class="remove-from-cart">إزالة</button>
+                                    </div>
+                                </div>
+                            `;
+                            cartContainer.insertAdjacentHTML('beforeend', cartItemHTML);
+                        });
+
+                        // حساب الإجمالي
+                        const total = savedCart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                        document.querySelector('.cart-total').textContent = `${total.toLocaleString()} ج.م`;
+                    }
+
+                    // إضافة أحداث الأزرار
+                    attachCartEvents();
+                }
+            }
+            
+            // صفحة المفضلة
+            if (pageUrl.includes('favorites.html')) {
+                const favoritesContainer = document.querySelector('.favorites-items');
+                if (favoritesContainer) {
+                    favoritesContainer.innerHTML = ''; // مسح المحتوى الحالي
+                    
+                    if (savedFavorites.length === 0) {
+                        favoritesContainer.innerHTML = `
+                            <div class="empty-favorites">
+                                <p>لا توجد منتجات في المفضلة حاليًا</p>
+                                <a href="products.html" class="btn-continue-shopping">تصفح المنتجات</a>
+                            </div>
+                        `;
+                    } else {
+                        savedFavorites.forEach(product => {
+                            const favoriteItemHTML = `
+                                <div class="favorite-item" data-product-id="${product.id}">
+                                    <img src="${product.image}" alt="${product.name}">
+                                    <div class="favorite-item-details">
+                                        <h3>${product.name}</h3>
+                                        <p>السعر: ${product.price.toLocaleString()} ج.م</p>
+                                        <div class="favorite-actions">
+                                            <button class="add-to-cart">أضف للسلة</button>
+                                            <button class="remove-from-favorites">إزالة من المفضلة</button>
+                                    </div>
+                                </div>
+                            `;
+                            favoritesContainer.insertAdjacentHTML('beforeend', favoriteItemHTML);
+                        });
+                    }
+
+                    // إضافة أحداث الأزرار
+                    attachFavoritesEvents();
+                }
+            }
+        }
+
+        // دالة لإضافة أحداث السلة
+        function attachCartEvents() {
+            // زيادة الكمية
+            document.querySelectorAll('.increase-qty').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = this.closest('.cart-item').dataset.productId;
+                    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+                    const product = cart.find(item => item.id == productId);
+                    
+                    if (product) {
+                        product.quantity += 1;
+                        localStorage.setItem('cart', JSON.stringify(cart));
+                        manageProductPage();
+                    }
+                });
+            });
+
+            // تقليل الكمية
+            document.querySelectorAll('.decrease-qty').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = this.closest('.cart-item').dataset.productId;
+                    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+                    const productIndex = cart.findIndex(item => item.id == productId);
+                    
+                    if (productIndex !== -1) {
+                        if (cart[productIndex].quantity > 1) {
+                            cart[productIndex].quantity -= 1;
+                        } else {
+                            cart.splice(productIndex, 1);
+                        }
+                        localStorage.setItem('cart', JSON.stringify(cart));
+                        manageProductPage();
+                    }
+                });
+            });
+
+            // إزالة المنتج
+            document.querySelectorAll('.remove-from-cart').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = this.closest('.cart-item').dataset.productId;
+                    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+                    const updatedCart = cart.filter(item => item.id != productId);
+                    
+                    localStorage.setItem('cart', JSON.stringify(updatedCart));
+                    manageProductPage();
+                });
+            });
+        }
+
+        // دالة لإضافة أحداث المفضلة
+        function attachFavoritesEvents() {
+            // إضافة للسلة
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = this.closest('.favorite-item').dataset.productId;
+                    const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+                    const product = favorites.find(item => item.id == productId);
+                    
+                    if (product) {
+                        addToCart(product);
+                    }
+                });
+            });
+
+            // إزالة من المفضلة
+            document.querySelectorAll('.remove-from-favorites').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = this.closest('.favorite-item').dataset.productId;
+                    const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+                    const updatedFavorites = favorites.filter(item => item.id != productId);
+                    
+                    localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+                    manageProductPage();
+                });
+            });
+        }
+
+        // تشغيل إدارة المنتجات عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', manageProductPage);
+    </script>
+</body>
+</html>

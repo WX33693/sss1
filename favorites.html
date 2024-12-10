@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المفضلة - سويت هوم</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .favorites-container {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .page-header {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+            margin-bottom: 20px;
+        }
+
+        .page-header .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .page-header h1 {
+            margin: 0;
+            color: #333;
+            font-size: 24px;
+        }
+
+        .empty-favorites {
+            text-align: center;
+            padding: 50px;
+            background-color: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+        }
+
+        .empty-favorites i {
+            font-size: 80px;
+            color: #e60000;
+            margin-bottom: 20px;
+        }
+
+        .empty-favorites p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .explore-products-btn {
+            background-color: #e60000;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .explore-products-btn:hover {
+            background-color: #cc0000;
+        }
+
+        .favorites-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .favorite-item {
+            background-color: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .favorite-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .favorite-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .favorite-item-details {
+            padding: 15px;
+        }
+
+        .favorite-item-details h3 {
+            margin: 0 0 10px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .favorite-item-details p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .favorite-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 15px 15px;
+        }
+
+        .remove-favorite, .add-to-cart-btn {
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        .remove-favorite {
+            background-color: #e60000;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .remove-favorite:hover {
+            background-color: #cc0000;
+        }
+
+        .add-to-cart-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #45a049;
+        }
+
+        @media (max-width: 768px) {
+            .favorites-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .favorites-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- الهيدر العلوي -->
+    <header>
+        <div class="header-top">
+            <div class="contact-info">
+                <span><i class="fas fa-phone"></i> اتصل بينا: 19999</span>
+                <span><i class="fas fa-clock"></i> خدمة العملا 24 ساعة</span>
+            </div>
+            <div class="user-actions">
+                <a href="login.html"><i class="fas fa-user"></i> دخول</a>
+                <span>|</span>
+                <a href="register.html"><i class="fas fa-user-plus"></i> حساب جديد</a>
+            </div>
+        </div>
+
+        <!-- الهيدر الرئيسي -->
+        <div class="header-main">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/logo.png" alt="سويت هوم">
+                </a>
+            </div>
+            <div class="search-bar">
+                <form action="/search" method="get">
+                    <input type="text" placeholder="دور على اللي نفسك فيه...">
+                    <button type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+            <div class="cart-favorites-container">
+                <div class="cart-icon">
+                    <a href="cart.html">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+                <div class="favorites-icon">
+                    <a href="favorites.html">
+                        <i class="far fa-heart"></i>
+                        <span class="favorites-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- عنوان الصفحة -->
+    <div class="page-header">
+        <div class="container">
+            <h1>المفضلة</h1>
+        </div>
+    </div>
+
+    <!-- محتوى الصفحة -->
+    <main class="favorites-container" id="favorites-container">
+        <!-- سيتم عرض المنتجات المفضلة هنا -->
+    </main>
+
+    <!-- الفوتر -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>روابط سريعة</h3>
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="products.html">المنتجات</a></li>
+                    <li><a href="cart.html">السلة</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>تواصل معنا</h3>
+                <p>هاتف: 19999</p>
+                <p>البريد الإلكتروني: support@sweethome.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>تابعنا</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 سويت هوم. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script>
+        // دالة تحديث المفضلة بالكامل
+        function renderFavorites() {
+            const favoritesContainer = document.getElementById('favorites-container');
+            const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+            const favoritesCount = document.querySelector('.favorites-count');
+
+            // تحديث عداد المفضلة
+            if (favoritesCount) {
+                favoritesCount.textContent = favorites.length;
+            }
+
+            // حالة المفضلة الفارغة
+            if (favorites.length === 0) {
+                favoritesContainer.innerHTML = `
+                    <div class="empty-favorites">
+                        <img src="assets/icons/heart-broken.svg" alt="لا توجد منتجات مفضلة">
+                        <h2>المفضلة فارغة</h2>
+                        <p>يبدو أنك لم تضف أي منتجات للمفضلة بعد</p>
+                        <a href="products.html" class="btn btn-primary">تصفح المنتجات</a>
+                    </div>
+                `;
+                return;
+            }
+
+            // عرض المنتجات المفضلة
+            favoritesContainer.innerHTML = favorites.map(product => `
+                <div class="product-card" data-product-id="${product.id}">
+                    <img src="${product.image}" alt="${product.name}">
+                    <div class="product-details">
+                        <h3>${product.name}</h3>
+                        <div class="product-price">
+                            <span class="price">${product.price} ج.م</span>
+                            ${product.discount ? `<span class="discount">${product.discount}%</span>` : ''}
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-favorites" onclick="removeFromFavorites('${product.id}')">
+                                إزالة
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // دالة إزالة من المفضلة
+        function removeFromFavorites(productId) {
+            let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+            favorites = favorites.filter(product => product.id !== productId);
+            
+            localStorage.setItem('favorites', JSON.stringify(favorites));
+            renderFavorites();
+            updateFavoritesCount();
+            
+            showNotification('تمت إزالة المنتج من المفضلة', 'warning');
+        }
+
+        // دالة عرض الإشعارات
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.classList.add('hide');
+                setTimeout(() => document.body.removeChild(notification), 500);
+            }, 3000);
+        }
+
+        // تحديث عداد المفضلة
+        function updateFavoritesCount() {
+            const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+            const favoritesCountElement = document.querySelector('.favorites-count');
+            if (favoritesCountElement) {
+                favoritesCountElement.textContent = favorites.length;
+            }
+        }
+
+        // تحميل المفضلة عند فتح الصفحة
+        document.addEventListener('DOMContentLoaded', () => {
+            renderFavorites();
+            updateFavoritesCount();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التحول الرقمي - سويت هوم</title>
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon/favicon.svg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .digital-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .digital-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .digital-header h1 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .digital-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .digital-main-content {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .digital-section {
+            margin-bottom: 40px;
+        }
+
+        .digital-section h2 {
+            color: #e60000;
+            border-bottom: 2px solid #e60000;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .technology-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .technology-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .technology-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .technology-card i {
+            font-size: 48px;
+            color: #e60000;
+            margin-bottom: 15px;
+        }
+
+        .technology-card h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .digital-impact {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .impact-grid {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+
+        .impact-item {
+            flex: 1;
+            padding: 15px;
+        }
+
+        .impact-item i {
+            color: #e60000;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .impact-item h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .impact-item p {
+            color: #666;
+        }
+
+        .digital-sidebar {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            height: fit-content;
+        }
+
+        .digital-services {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .digital-services h3 {
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e60000;
+            padding-bottom: 10px;
+        }
+
+        .service-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .service-item i {
+            color: #e60000;
+            margin-left: 15px;
+            font-size: 24px;
+        }
+
+        .service-details h4 {
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .service-details p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .digital-roadmap {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .digital-roadmap h3 {
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e60000;
+            padding-bottom: 10px;
+        }
+
+        .roadmap-item {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .roadmap-item i {
+            color: #e60000;
+            margin-left: 10px;
+        }
+
+        .get-digital {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .get-digital h3 {
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e60000;
+            padding-bottom: 10px;
+        }
+
+        .digital-btn {
+            background: #e60000;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.3s;
+            margin-top: 15px;
+        }
+
+        .digital-btn:hover {
+            background: #cc0000;
+        }
+
+        .contact-digital {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .contact-digital h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .contact-btn {
+            background: #e60000;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.3s;
+        }
+
+        .contact-btn:hover {
+            background: #cc0000;
+        }
+
+        @media (max-width: 1024px) {
+            .digital-content {
+                grid-template-columns: 1fr;
+            }
+
+            .technology-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .impact-grid {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .technology-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="digital-container">
+            <div class="digital-header">
+                <h1>التحول الرقمي</h1>
+                <p>نقود مستقبل التكنولوجيا والابتكار</p>
+            </div>
+
+            <div class="digital-content">
+                <div class="digital-main-content">
+                    <div class="digital-section">
+                        <h2>التقنيات الرقمية</h2>
+                        <div class="technology-grid">
+                            <div class="technology-card">
+                                <i class="fas fa-robot"></i>
+                                <h3>الذكاء الاصطناعي</h3>
+                                <p>حلول ذكية متطورة</p>
+                            </div>
+                            <div class="technology-card">
+                                <i class="fas fa-cloud"></i>
+                                <h3>الحوسبة السحابية</h3>
+                                <p>تخزين وإدارة البيانات</p>
+                            </div>
+                            <div class="technology-card">
+                                <i class="fas fa-mobile-alt"></i>
+                                <h3>التطبيقات الذكية</h3>
+                                <p>تجربة مستخدم متكاملة</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="digital-section">
+                        <h2>تأثير التحول الرقمي</h2>
+                        <div class="digital-impact">
+                            <div class="impact-grid">
+                                <div class="impact-item">
+                                    <i class="fas fa-chart-line"></i>
+                                    <h3>200%</h3>
+                                    <p>زيادة الكفاءة</p>
+                                </div>
+                                <div class="impact-item">
+                                    <i class="fas fa-users"></i>
+                                    <h3>50,000+</h3>
+                                    <p>مستخدم رقمي</p>
+                                </div>
+                                <div class="impact-item">
+                                    <i class="fas fa-trophy"></i>
+                                    <h3>10</h3>
+                                    <p>جوائز رقمية</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="digital-section">
+                        <h2>مجالات التحول الرقمي</h2>
+                        <div class="technology-grid">
+                            <div class="technology-card">
+                                <i class="fas fa-shopping-cart"></i>
+                                <h3>التجارة الإلكترونية</h3>
+                                <p>منصات تسوق متطورة</p>
+                            </div>
+                            <div class="technology-card">
+                                <i class="fas fa-headset"></i>
+                                <h3>خدمة العملاء</h3>
+                                <p>دعم رقمي متكامل</p>
+                            </div>
+                            <div class="technology-card">
+                                <i class="fas fa-chart-pie"></i>
+                                <h3>التحليلات الذكية</h3>
+                                <p>رؤى وتوقعات دقيقة</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="digital-sidebar">
+                    <div class="digital-services">
+                        <h3>الخدمات الرقمية</h3>
+                        <div class="service-item">
+                            <i class="fas fa-mobile-alt"></i>
+                            <div class="service-details">
+                                <h4>تطبيق سويت هوم</h4>
+                                <p>تحكم كامل بالمنزل</p>
+                            </div>
+                        </div>
+                        <div class="service-item">
+                            <i class="fas fa-shopping-bag"></i>
+                            <div class="service-details">
+                                <h4>متجر إلكتروني</h4>
+                                <p>تسوق سهل وآمن</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="digital-roadmap">
+                        <h3>خارطة التحول الرقمي</h3>
+                        <div class="roadmap-item">
+                            <i class="fas fa-check"></i>
+                            <p>التحليل والتخطيط</p>
+                        </div>
+                        <div class="roadmap-item">
+                            <i class="fas fa-check"></i>
+                            <p>التنفيذ والتطوير</p>
+                        </div>
+                    </div>
+
+                    <div class="get-digital">
+                        <h3>استكشف عالمنا الرقمي</h3>
+                        <p>انضم إلى ثورة التكنولوجيا</p>
+                        <button class="digital-btn">
+                            <i class="fas fa-rocket"></i>
+                            ابدأ الآن
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-digital">
+                <h3>هل تريد معرفة المزيد عن التحول الرقمي؟</h3>
+                <a href="#" class="contact-btn">
+                    <i class="fas fa-envelope"></i>
+                    تواصل معنا
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // زر البدء في التحول الرقمي
+        document.querySelector('.digital-btn').addEventListener('click', function() {
+            alert('شكرًا لاهتمامك بالتحول الرقمي. سنتواصل معك قريبًا');
+        });
+
+        // زر التواصل
+        document.querySelector('.contact-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('سيتم توجيهك إلى صفحة التواصل');
+        });
+    </script>
+</body>
+</html>

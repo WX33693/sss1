@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الدعم الفني - سويت هوم</title>
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon/favicon.svg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .support-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .support-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .support-header h1 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .support-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .contact-form h2 {
+            color: #e60000;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e60000;
+            padding-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #e60000;
+        }
+
+        .submit-btn {
+            background: #e60000;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #cc0000;
+        }
+
+        .support-info {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .support-contact {
+            margin-bottom: 30px;
+        }
+
+        .support-contact h3 {
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e60000;
+            padding-bottom: 10px;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+
+        .contact-method:hover {
+            transform: translateX(-10px);
+        }
+
+        .contact-method i {
+            color: #e60000;
+            margin-left: 15px;
+            font-size: 24px;
+        }
+
+        .working-hours {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .working-hours h3 {
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e60000;
+            padding-bottom: 10px;
+        }
+
+        .chat-support {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #e60000;
+            color: white;
+            padding: 15px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: background 0.3s;
+        }
+
+        .chat-support:hover {
+            background: #cc0000;
+        }
+
+        @media (max-width: 1024px) {
+            .support-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-method {
+                flex-direction: column;
+                align-items: start;
+                text-align: right;
+            }
+
+            .contact-method i {
+                margin-bottom: 10px;
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="support-container">
+            <div class="support-header">
+                <h1>مركز الدعم الفني</h1>
+                <p>نحن هنا للمساعدة. تواصل معنا بأي وقت.</p>
+            </div>
+
+            <div class="support-grid">
+                <div class="contact-form">
+                    <h2>نموذج التواصل</h2>
+                    <form id="supportForm">
+                        <div class="form-group">
+                            <label>الاسم الكامل</label>
+                            <input type="text" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>البريد الإلكتروني</label>
+                            <input type="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>رقم الهاتف</label>
+                            <input type="tel" name="phone">
+                        </div>
+
+                        <div class="form-group">
+                            <label>نوع الاستفسار</label>
+                            <select name="inquiry-type" required>
+                                <option value="">اختر نوع الاستفسار</option>
+                                <option value="order">استفسار عن طلب</option>
+                                <option value="product">استفسار عن منتج</option>
+                                <option value="technical">دعم فني</option>
+                                <option value="other">أخرى</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>رسالتك</label>
+                            <textarea name="message" rows="5" required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">إرسال الرسالة</button>
+                    </form>
+                </div>
+
+                <div class="support-info">
+                    <div class="support-contact">
+                        <h3>طرق التواصل</h3>
+                        <div class="contact-method">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <strong>خدمة العملاء</strong>
+                                <p>01025744780 (مجانًا)</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>البريد الإلكتروني:</strong>
+                                <p>wx33693@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fab fa-whatsapp"></i>
+                            <div>
+                                <strong>واتساب</strong>
+                                <p>0100 000 0000</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="working-hours">
+                        <h3>ساعات العمل</h3>
+                        <p>السبت - الخميس: 9 صباحًا - 9 مساءً</p>
+                        <p>الجمعة: مغلق</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/0WX33693" target="_blank" class="facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/wx33_6/" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/wx33693" target="_blank" class="twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.youtube.com/@wx33693" target="_blank" class="youtube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chat-support">
+            <i class="fas fa-comment-dots"></i>
+            <span>محادثة مباشرة</span>
+        </div>
+    </main>
+
+    <script>
+        // إرسال نموذج الدعم
+        document.getElementById('supportForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('شكرًا لتواصلك. سنقوم بالرد عليك في أقرب وقت.');
+        });
+
+        // محادثة مباشرة
+        document.querySelector('.chat-support').addEventListener('click', function() {
+            alert('سيتم توصيلك بممثل خدمة العملاء في أقرب وقت.');
+        });
+    </script>
+</body>
+</html>

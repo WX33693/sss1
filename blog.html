@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المدونة - سويت هوم</title>
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon/favicon.svg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .blog-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .blog-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .blog-header h1 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .blog-search {
+            display: flex;
+            align-items: center;
+            background: #f8f9fa;
+            border-radius: 5px;
+            padding: 5px 10px;
+        }
+
+        .blog-search input {
+            border: none;
+            background: none;
+            flex: 1;
+            padding: 10px;
+        }
+
+        .blog-search button {
+            background: #e60000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        .blog-categories {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            overflow-x: auto;
+        }
+
+        .category-btn {
+            background: #f8f9fa;
+            color: #666;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .category-btn.active,
+        .category-btn:hover {
+            background: #e60000;
+            color: white;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .blog-details {
+            padding: 20px;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #666;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .blog-title {
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .blog-excerpt {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .read-more {
+            color: #e60000;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .featured-post {
+            grid-column: span 3;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .featured-post-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .featured-post-details {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .featured-post-title {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .featured-post-excerpt {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 1200px) {
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .featured-post {
+                grid-column: span 2;
+                grid-template-columns: 1fr;
+            }
+
+            .featured-post-image {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-post {
+                grid-column: span 1;
+            }
+        }
+
+        .cart-favorites-container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .cart-icon, .favorites-icon {
+            margin-left: 20px;
+            position: relative;
+        }
+
+        .cart-icon a, .favorites-icon a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .cart-count, .favorites-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #e60000;
+            color: white;
+            padding: 2px 5px;
+            border-radius: 50%;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="blog-container">
+            <div class="blog-header">
+                <h1>مدونة سويت هوم</h1>
+                <div class="blog-search">
+                    <input type="text" placeholder="ابحث في المقالات">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="cart-favorites-container">
+                    <div class="cart-icon">
+                        <a href="cart.html">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">0</span>
+                        </a>
+                    </div>
+                    <div class="favorites-icon">
+                        <a href="favorites.html">
+                            <i class="far fa-heart"></i>
+                            <span class="favorites-count">0</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="blog-categories">
+                <button class="category-btn active">كل المقالات</button>
+                <button class="category-btn">الأجهزة المنزلية</button>
+                <button class="category-btn">نصائح وإرشادات</button>
+                <button class="category-btn">صيانة الأجهزة</button>
+                <button class="category-btn">تكنولوجيا المطبخ</button>
+            </div>
+
+            <div class="blog-grid">
+                <div class="featured-post">
+                    <img src="assets/images/blog/kitchen-tech.jpg" alt="التكنولوجيا الحديثة في المطبخ" class="featured-post-image">
+                    <div class="featured-post-details">
+                        <h2 class="featured-post-title">التكنولوجيا الحديثة في المطبخ: مستقبل الطهي الذكي</h2>
+                        <p class="featured-post-excerpt">اكتشف أحدث التقنيات والأجهزة التي ستغير طريقة طهيك وتجعل المطبخ أكثر ذكاءً وراحة.</p>
+                        <a href="#" class="read-more">
+                            اقرأ المزيد
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="blog-card">
+                    <img src="assets/images/blog/mixer-tips.jpg" alt="نصائح استخدام الخلاط" class="blog-image">
+                    <div class="blog-details">
+                        <div class="blog-meta">
+                            <span>15 ديسمبر 2023</span>
+                            <span>الأجهزة المنزلية</span>
+                        </div>
+                        <h3 class="blog-title">10 نصائح للاستخدام الأمثل للخلاط</h3>
+                        <p class="blog-excerpt">تعرف على أفضل الممارسات لاستخدام الخلاط بكفاءة وإطالة عمره الافتراضي.</p>
+                        <a href="#" class="read-more">
+                            اقرأ المزيد
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="blog-card">
+                    <img src="assets/images/blog/coffee-maker-maintenance.jpg" alt="صيانة ماكينة القهوة" class="blog-image">
+                    <div class="blog-details">
+                        <div class="blog-meta">
+                            <span>10 ديسمبر 2023</span>
+                            <span>صيانة الأجهزة</span>
+                        </div>
+                        <h3 class="blog-title">كيفية صيانة ماكينة القهوة للحفاظ على جودة القهوة</h3>
+                        <p class="blog-excerpt">دليل شامل لتنظيف وصيانة ماكينة القهوة للحصول على أفضل نتيجة.</p>
+                        <a href="#" class="read-more">
+                            اقرأ المزيد
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="blog-card">
+                    <img src="assets/images/blog/smart-kitchen.jpg" alt="المطبخ الذكي" class="blog-image">
+                    <div class="blog-details">
+                        <div class="blog-meta">
+                            <span>5 ديسمبر 2023</span>
+                            <span>تكنولوجيا المطبخ</span>
+                        </div>
+                        <h3 class="blog-title">المطبخ الذكي: مستقبل المنازل العصرية</h3>
+                        <p class="blog-excerpt">استكشف أحدث التقنيات والأجهزة التي تحول مطبخك إلى مساحة ذكية وعملية.</p>
+                        <a href="#" class="read-more">
+                            اقرأ المزيد
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // تفعيل الفئات
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // إزالة الكلاس النشط من جميع الأزرار
+                document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+                
+                // إضافة الكلاس النشط للزر المحدد
+                this.classList.add('active');
+            });
+        });
+
+        // البحث في المقالات
+        document.querySelector('.blog-search button').addEventListener('click', function() {
+            const searchTerm = document.querySelector('.blog-search input').value;
+            alert(`البحث عن: ${searchTerm}`);
+        });
+    </script>
+</body>
+</html>

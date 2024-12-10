@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأجهزة المنزلية - سويت هوم</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="سويت هوم">
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="products.html">المنتجات</a></li>
+                    <li><a href="home-appliances.html" class="active">الأجهزة المنزلية</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <a href="profile.html"><i class="fas fa-user"></i></a>
+                <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="products-container">
+            <!-- Filters Sidebar -->
+            <div class="filters-sidebar">
+                <div class="filter-group">
+                    <h4>الفئات الفرعية</h4>
+                    <div class="filter-options">
+                        <label><input type="checkbox"> ثلاجات</label>
+                        <label><input type="checkbox"> غسالات</label>
+                        <label><input type="checkbox"> مكيفات</label>
+                        <label><input type="checkbox"> أفران</label>
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <h4>العلامات التجارية</h4>
+                    <div class="filter-options">
+                        <label><input type="checkbox"> سامسونج</label>
+                        <label><input type="checkbox"> ال جي</label>
+                        <label><input type="checkbox"> توشيبا</label>
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <h4>نطاق السعر</h4>
+                    <div class="price-range">
+                        <input type="range" id="price-range" min="0" max="10000" step="500">
+                        <div class="price-labels">
+                            <span>0 ج.م</span>
+                            <span>10,000 ج.م</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="products-grid">
+                <!-- Product 1: Refrigerator -->
+                <div class="product-card">
+                    <img src="images/refrigerator.jpg" alt="ثلاجة سامسونج">
+                    <div class="product-details">
+                        <span>سامسونج</span>
+                        <span>الأجهزة المنزلية</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="discount">15%</span>
+                        <span class="price">8,999 ج.م</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="add-to-cart">أضف للسلة</button>
+                        <button class="add-to-favorites">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 2: Washing Machine -->
+                <div class="product-card">
+                    <img src="images/washing-machine.jpg" alt="غسالة ال جي">
+                    <div class="product-details">
+                        <span>ال جي</span>
+                        <span>الأجهزة المنزلية</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="discount">20%</span>
+                        <span class="price">7,500 ج.م</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="add-to-cart">أضف للسلة</button>
+                        <button class="add-to-favorites">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 3: Air Conditioner -->
+                <div class="product-card">
+                    <img src="images/air-conditioner.jpg" alt="مكيف توشيبا">
+                    <div class="product-details">
+                        <span>توشيبا</span>
+                        <span>الأجهزة المنزلية</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="discount">10%</span>
+                        <span class="price">6,299 ج.م</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="add-to-cart">أضف للسلة</button>
+                        <button class="add-to-favorites">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 4: Microwave -->
+                <div class="product-card">
+                    <img src="images/microwave.jpg" alt="مايكروويف سامسونج">
+                    <div class="product-details">
+                        <span>سامسونج</span>
+                        <span>الأجهزة المنزلية</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="discount">25%</span>
+                        <span class="price">3,999 ج.م</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="add-to-cart">أضف للسلة</button>
+                        <button class="add-to-favorites">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 5: Electric Oven -->
+                <div class="product-card">
+                    <img src="images/electric-oven.jpg" alt="فرن كهربائي ال جي">
+                    <div class="product-details">
+                        <span>ال جي</span>
+                        <span>الأجهزة المنزلية</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="discount">18%</span>
+                        <span class="price">5,499 ج.م</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="add-to-cart">أضف للسلة</button>
+                        <button class="add-to-favorites">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 6: Dishwasher -->
+                <div class="product-card">
+                    <img src="images/dishwasher.jpg" alt="غسالة أطباق توشيبا">
+                    <div class="product-details">
+                        <span>توشيبا</span>
+                        <span>الأجهزة المنزلية</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="discount">12%</span>
+                        <span class="price">4,799 ج.م</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="add-to-cart">أضف للسلة</button>
+                        <button class="add-to-favorites">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="products.html">المنتجات</a></li>
+                        <li><a href="home-appliances.html">الأجهزة المنزلية</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>تواصل معنا</h4>
+                    <p>هاتف: 19123</p>
+                    <p>البريد الإلكتروني: support@sweethome.com</p>
+                </div>
+                <div class="footer-section">
+                    <h4>تابعنا</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 سويت هوم. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

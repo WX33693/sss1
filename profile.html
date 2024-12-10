@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الملف الشخصي - سويت هوم</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon/favicon.svg">
+    <style>
+        .profile-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: 30px;
+        }
+
+        .profile-sidebar {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .profile-sidebar .user-info {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-sidebar .user-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .profile-sidebar .user-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .profile-sidebar .user-email {
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .profile-menu {
+            list-style: none;
+            padding: 0;
+        }
+
+        .profile-menu li {
+            margin-bottom: 10px;
+        }
+
+        .profile-menu a {
+            display: block;
+            padding: 10px 15px;
+            color: #333;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .profile-menu a:hover,
+        .profile-menu a.active {
+            background: #f4f4f4;
+            color: #e60000;
+        }
+
+        .profile-content {
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e60000;
+            padding-bottom: 10px;
+        }
+
+        .order-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .order-details {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .order-image {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .order-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .order-status {
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .status-pending {
+            background: #ffc107;
+            color: #333;
+        }
+
+        .status-shipped {
+            background: #28a745;
+            color: white;
+        }
+
+        .status-cancelled {
+            background: #dc3545;
+            color: white;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .save-btn {
+            background: #e60000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .profile-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="profile-container">
+            <div class="profile-sidebar">
+                <div class="user-info">
+                    <img src="assets/images/user-avatar.jpg" alt="صورة المستخدم" class="user-avatar">
+                    <div class="user-name">محمد أحمد</div>
+                    <div class="user-email">mohamed.ahmed@example.com</div>
+                </div>
+                <ul class="profile-menu">
+                    <li><a href="#" class="active" data-section="personal-info"><i class="fas fa-user"></i> المعلومات الشخصية</a></li>
+                    <li><a href="#" data-section="orders"><i class="fas fa-shopping-bag"></i> طلباتي</a></li>
+                    <li><a href="#" data-section="addresses"><i class="fas fa-map-marker-alt"></i> العناوين</a></li>
+                    <li><a href="#" data-section="settings"><i class="fas fa-cog"></i> الإعدادات</a></li>
+                    <li><a href="home-appliances.html"><i class="fas fa-home"></i> الأجهزة المنزلية</a></li>
+                </ul>
+            </div>
+
+            <div class="profile-content">
+                <div id="personal-info" class="section active">
+                    <h2 class="section-title">المعلومات الشخصية</h2>
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>الاسم الأول</label>
+                                <input type="text" value="محمد" required>
+                            </div>
+                            <div class="form-group">
+                                <label>الاسم الأخير</label>
+                                <input type="text" value="أحمد" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>البريد الإلكتروني</label>
+                            <input type="email" value="mohamed.ahmed@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label>رقم الهاتف</label>
+                            <input type="tel" value="01234567890" required>
+                        </div>
+                        <button type="submit" class="save-btn">حفظ التغييرات</button>
+                    </form>
+                </div>
+
+                <div id="orders" class="section" style="display:none;">
+                    <h2 class="section-title">طلباتي</h2>
+                    <ul class="order-list">
+                        <li class="order-item">
+                            <div class="order-details">
+                                <img src="assets/images/products/mixer.jpg" alt="خلاط" class="order-image">
+                                <div class="order-info">
+                                    <strong>خلاط كهربائي</strong>
+                                    <span>رقم الطلب: #12345</span>
+                                    <span>التاريخ: 15 ديسمبر 2023</span>
+                                </div>
+                            </div>
+                            <div class="order-status status-shipped">تم الشحن</div>
+                        </li>
+                        <li class="order-item">
+                            <div class="order-details">
+                                <img src="assets/images/products/coffee-maker.jpg" alt="ماكينة قهوة" class="order-image">
+                                <div class="order-info">
+                                    <strong>ماكينة قهوة</strong>
+                                    <span>رقم الطلب: #12346</span>
+                                    <span>التاريخ: 10 ديسمبر 2023</span>
+                                </div>
+                            </div>
+                            <div class="order-status status-pending">قيد المعالجة</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div id="addresses" class="section" style="display:none;">
+                    <h2 class="section-title">العناوين</h2>
+                    <div class="address-list">
+                        <div class="address-item">
+                            <h3>العنوان الرئيسي</h3>
+                            <p>شارع التحرير، المنصورة، محافظة الدقهلية، مصر</p>
+                            <button class="edit-btn">تعديل</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="settings" class="section" style="display:none;">
+                    <h2 class="section-title">الإعدادات</h2>
+                    <div class="form-group">
+                        <label>تغيير كلمة المرور</label>
+                        <input type="password" placeholder="كلمة المرور الحالية">
+                        <input type="password" placeholder="كلمة المرور الجديدة">
+                        <input type="password" placeholder="تأكيد كلمة المرور">
+                        <button class="save-btn">تغيير كلمة المرور</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.querySelectorAll('.profile-menu a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const sectionId = this.getAttribute('data-section');
+                
+                // Hide all sections
+                document.querySelectorAll('.section').forEach(section => {
+                    section.style.display = 'none';
+                });
+                
+                // Remove active class from all menu items
+                document.querySelectorAll('.profile-menu a').forEach(menuLink => {
+                    menuLink.classList.remove('active');
+                });
+                
+                // Show selected section
+                document.getElementById(sectionId).style.display = 'block';
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

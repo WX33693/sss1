@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>العروض والتخفيضات - سويت هوم</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon/favicon.svg">
+    <style>
+        .offers-container {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .offers-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .offers-header h1 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .countdown-timer {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            background: #e60000;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        .countdown-timer .timer-unit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .countdown-timer .timer-value {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .countdown-timer .timer-label {
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .offer-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .offer-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .offer-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .offer-details {
+            padding: 20px;
+        }
+
+        .offer-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .offer-price {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #888;
+        }
+
+        .discounted-price {
+            color: #e60000;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .discount-badge {
+            background: #e60000;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .offer-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .add-to-cart-btn {
+            background: #333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .add-to-favorites {
+            color: #e60000;
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .flash-sale-section {
+            background: linear-gradient(135deg, #ff6b6b, #e60000);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .flash-sale-content {
+            flex: 1;
+        }
+
+        .flash-sale-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .flash-sale-description {
+            margin-bottom: 20px;
+        }
+
+        .flash-sale-products {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding-bottom: 20px;
+        }
+
+        .flash-sale-product {
+            flex: 0 0 200px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .flash-sale-product img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .flash-sale-product-details {
+            padding: 15px;
+            color: #333;
+        }
+
+        @media (max-width: 1200px) {
+            .offers-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .offers-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .flash-sale-section {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .offers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="offers-container">
+            <!-- قسم العروض الوميض -->
+            <div class="flash-sale-section">
+                <div class="flash-sale-content">
+                    <h2 class="flash-sale-title">عروض الوميض</h2>
+                    <p class="flash-sale-description">خصومات حصرية لفترة محدودة! استمتع بأسعار رائعة على أفضل المنتجات.</p>
+                    <div class="countdown-timer">
+                        <div class="timer-unit">
+                            <div class="timer-value" id="hours">00</div>
+                            <div class="timer-label">ساعة</div>
+                        </div>
+                        <div class="timer-unit">
+                            <div class="timer-value" id="minutes">00</div>
+                            <div class="timer-label">دقيقة</div>
+                        </div>
+                        <div class="timer-unit">
+                            <div class="timer-value" id="seconds">00</div>
+                            <div class="timer-label">ثانية</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flash-sale-products">
+                    <div class="flash-sale-product">
+                        <img src="assets/images/products/mixer.jpg" alt="خلاط">
+                        <div class="flash-sale-product-details">
+                            <h3>خلاط كهربائي</h3>
+                            <p>899 جنيه بدلاً من 1299 جنيه</p>
+                        </div>
+                    </div>
+                    <div class="flash-sale-product">
+                        <img src="assets/images/products/coffee-maker.jpg" alt="ماكينة قهوة">
+                        <div class="flash-sale-product-details">
+                            <h3>ماكينة قهوة</h3>
+                            <p>1999 جنيه بدلاً من 2499 جنيه</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- عنوان الصفحة -->
+            <div class="offers-header">
+                <h1>العروض والتخفيضات</h1>
+            </div>
+
+            <!-- شبكة العروض -->
+            <div class="offers-grid">
+                <div class="offer-card">
+                    <img src="assets/images/products/blender.jpg" alt="خلاط" class="offer-image">
+                    <div class="offer-details">
+                        <div class="offer-title">خلاط عصير متعدد الوظائف</div>
+                        <div class="offer-price">
+                            <span class="original-price">799 جنيه</span>
+                            <span class="discounted-price">599 جنيه</span>
+                            <span class="discount-badge">25% خصم</span>
+                        </div>
+                        <div class="offer-actions">
+                            <button class="add-to-cart-btn">أضف للسلة</button>
+                            <button class="add-to-favorites">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="offer-card">
+                    <img src="assets/images/products/toaster.jpg" alt="توستر" class="offer-image">
+                    <div class="offer-details">
+                        <div class="offer-title">توستر كهربائي</div>
+                        <div class="offer-price">
+                            <span class="original-price">499 جنيه</span>
+                            <span class="discounted-price">399 جنيه</span>
+                            <span class="discount-badge">20% خصم</span>
+                        </div>
+                        <div class="offer-actions">
+                            <button class="add-to-cart-btn">أضف للسلة</button>
+                            <button class="add-to-favorites">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="offer-card">
+                    <img src="assets/images/products/microwave.jpg" alt="ميكروويف" class="offer-image">
+                    <div class="offer-details">
+                        <div class="offer-title">ميكروويف ذكي</div>
+                        <div class="offer-price">
+                            <span class="original-price">1499 جنيه</span>
+                            <span class="discounted-price">1299 جنيه</span>
+                            <span class="discount-badge">15% خصم</span>
+                        </div>
+                        <div class="offer-actions">
+                            <button class="add-to-cart-btn">أضف للسلة</button>
+                            <button class="add-to-favorites">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="offer-card">
+                    <img src="assets/images/products/kettle.jpg" alt="غلاية" class="offer-image">
+                    <div class="offer-details">
+                        <div class="offer-title">غلاية كهربائية</div>
+                        <div class="offer-price">
+                            <span class="original-price">299 جنيه</span>
+                            <span class="discounted-price">249 جنيه</span>
+                            <span class="discount-badge">17% خصم</span>
+                        </div>
+                        <div class="offer-actions">
+                            <button class="add-to-cart-btn">أضف للسلة</button>
+                            <button class="add-to-favorites">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // عداد الوقت للعروض الوميض
+        function updateCountdown() {
+            const endTime = new Date();
+            endTime.setHours(endTime.getHours() + 12);
+
+            const timer = setInterval(function() {
+                const now = new Date();
+                const timeLeft = endTime - now;
+
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+
+                if (timeLeft < 0) {
+                    clearInterval(timer);
+                    document.querySelector('.countdown-timer').innerHTML = 'انتهت العروض';
+                }
+            }, 1000);
+        }
+
+        // تفعيل العداد عند تحميل الصفحة
+        updateCountdown();
+
+        // إضافة للسلة
+        document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const productName = this.closest('.offer-details').querySelector('.offer-title').textContent;
+                alert(`تم إضافة ${productName} للسلة`);
+            });
+        });
+
+        // الإضافة للمفضلة
+        document.querySelectorAll('.add-to-favorites').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const icon = this.querySelector('i');
+                icon.classList.toggle('far');
+                icon.classList.toggle('fas');
+            });
+        });
+    </script>
+</body>
+</html>

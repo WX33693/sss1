@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مقارنة المنتجات - سويت هوم</title>
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon/favicon.svg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .compare-container {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .compare-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .compare-header h1 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .add-product-btn {
+            background: #e60000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .compare-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .compare-table th,
+        .compare-table td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .compare-table th {
+            background: #f8f9fa;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+        }
+
+        .product-image {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .product-name {
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .product-price {
+            color: #e60000;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .remove-product {
+            color: #dc3545;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .feature-name {
+            text-align: right;
+            font-weight: bold;
+            background: #f8f9fa;
+        }
+
+        .feature-value {
+            text-align: center;
+        }
+
+        .highlight {
+            background: #fff4f4;
+            font-weight: bold;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            padding: 30px;
+            border-radius: 10px;
+            width: 500px;
+            max-width: 90%;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .product-list-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 10px;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .product-list-item:hover {
+            background: #f4f4f4;
+        }
+
+        .product-list-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .cart-favorites-container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .cart-icon, .favorites-icon {
+            margin-left: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .cart-icon a, .favorites-icon a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .cart-count, .favorites-count {
+            font-size: 18px;
+            margin-left: 5px;
+            color: #e60000;
+        }
+
+        @media (max-width: 768px) {
+            .compare-table {
+                font-size: 14px;
+            }
+
+            .product-image {
+                width: 150px;
+                height: 150px;
+            }
+
+            .product-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="compare-container">
+            <div class="cart-favorites-container">
+                <div class="cart-icon">
+                    <a href="cart.html">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+                <div class="favorites-icon">
+                    <a href="favorites.html">
+                        <i class="far fa-heart"></i>
+                        <span class="favorites-count">0</span>
+                    </a>
+                </div>
+            </div>
+            <div class="compare-header">
+                <h1>مقارنة المنتجات</h1>
+                <button class="add-product-btn" onclick="openProductModal()">
+                    <i class="fas fa-plus"></i> إضافة منتج للمقارنة
+                </button>
+            </div>
+
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th>المواصفات</th>
+                        <th>
+                            <div class="product-card">
+                                <img src="assets/images/products/mixer.jpg" class="product-image" alt="خلاط كهربائي">
+                                <div class="product-name">خلاط كهربائي</div>
+                                <div class="product-price">999 جنيه</div>
+                                <button class="remove-product" onclick="removeProduct(this)">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="product-card">
+                                <img src="assets/images/products/coffee-maker.jpg" class="product-image" alt="ماكينة قهوة">
+                                <div class="product-name">ماكينة قهوة اسبريسو</div>
+                                <div class="product-price">2499 جنيه</div>
+                                <button class="remove-product" onclick="removeProduct(this)">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="feature-name">السعر</td>
+                        <td class="feature-value">999 جنيه</td>
+                        <td class="feature-value highlight">2499 جنيه</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">العلامة التجارية</td>
+                        <td class="feature-value">فيليبس</td>
+                        <td class="feature-value">دي لونجي</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">اللون</td>
+                        <td class="feature-value">أبيض</td>
+                        <td class="feature-value">أسود</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">القدرة</td>
+                        <td class="feature-value">800 واط</td>
+                        <td class="feature-value">1450 واط</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">السعة</td>
+                        <td class="feature-value">1.5 لتر</td>
+                        <td class="feature-value">1.2 لتر</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">الضمان</td>
+                        <td class="feature-value">سنة واحدة</td>
+                        <td class="feature-value">سنتان</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">متوفر في المخزون</td>
+                        <td class="feature-value"><i class="fas fa-check" style="color: green;"></i></td>
+                        <td class="feature-value"><i class="fas fa-check" style="color: green;"></i></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">إضافة للسلة</td>
+                        <td class="feature-value">
+                            <button class="add-to-cart-btn">أضف للسلة</button>
+                        </td>
+                        <td class="feature-value">
+                            <button class="add-to-cart-btn">أضف للسلة</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- نافذة اختيار المنتج -->
+        <div id="productModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeProductModal()">&times;</span>
+                <h2>اختر منتج للمقارنة</h2>
+                <div class="product-list">
+                    <div class="product-list-item" onclick="selectProductToCompare(this)">
+                        <img src="assets/images/products/blender.jpg" alt="خلاط">
+                        <div>
+                            <div class="product-name">خلاط عصير</div>
+                            <div class="product-price">599 جنيه</div>
+                        </div>
+                    </div>
+                    <div class="product-list-item" onclick="selectProductToCompare(this)">
+                        <img src="assets/images/products/toaster.jpg" alt="توستر">
+                        <div>
+                            <div class="product-name">توستر كهربائي</div>
+                            <div class="product-price">399 جنيه</div>
+                        </div>
+                    </div>
+                    <div class="product-list-item" onclick="selectProductToCompare(this)">
+                        <img src="assets/images/products/microwave.jpg" alt="ميكروويف">
+                        <div>
+                            <div class="product-name">ميكروويف</div>
+                            <div class="product-price">1299 جنيه</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function openProductModal() {
+            document.getElementById('productModal').style.display = 'flex';
+        }
+
+        function closeProductModal() {
+            document.getElementById('productModal').style.display = 'none';
+        }
+
+        function selectProductToCompare(item) {
+            const productName = item.querySelector('.product-name').textContent;
+            const productPrice = item.querySelector('.product-price').textContent;
+            const productImage = item.querySelector('img').src;
+
+            // إضافة المنتج للجدول
+            const compareTable = document.querySelector('.compare-table thead tr');
+            const newColumn = document.createElement('th');
+            newColumn.innerHTML = `
+                <div class="product-card">
+                    <img src="${productImage}" class="product-image" alt="${productName}">
+                    <div class="product-name">${productName}</div>
+                    <div class="product-price">${productPrice}</div>
+                    <button class="remove-product" onclick="removeProduct(this)">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </div>
+            `;
+            compareTable.appendChild(newColumn);
+
+            // إغلاق النافذة
+            closeProductModal();
+        }
+
+        function removeProduct(button) {
+            const columnIndex = button.closest('th').cellIndex;
+            const compareTable = document.querySelector('.compare-table');
+            
+            // إزالة العمود
+            for (let row of compareTable.rows) {
+                row.deleteCell(columnIndex);
+            }
+        }
+
+        // إضافة للسلة
+        document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const productName = this.closest('th').querySelector('.product-name').textContent;
+                alert(`تم إضافة ${productName} للسلة`);
+            });
+        });
+    </script>
+</body>
+</html>

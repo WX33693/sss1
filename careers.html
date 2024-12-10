@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الوظائف - سويت هوم</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon/favicon.svg">
+    <style>
+        .careers-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .careers-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .careers-header h1 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .careers-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .job-listings {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .job-section {
+            margin-bottom: 30px;
+        }
+
+        .job-section h2 {
+            color: #e60000;
+            border-bottom: 2px solid #e60000;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .job-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+
+        .job-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .job-title {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .job-type {
+            background: #e60000;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .job-details {
+            display: flex;
+            justify-content: space-between;
+            color: #666;
+        }
+
+        .job-apply {
+            background: #e60000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .job-apply:hover {
+            background: #cc0000;
+        }
+
+        .careers-sidebar {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            height: fit-content;
+        }
+
+        .why-work-here {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .why-work-here h3 {
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e60000;
+            padding-bottom: 10px;
+        }
+
+        .work-benefit {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .work-benefit i {
+            color: #e60000;
+            margin-left: 15px;
+            font-size: 24px;
+        }
+
+        .company-culture {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .company-culture h3 {
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e60000;
+            padding-bottom: 10px;
+        }
+
+        .culture-value {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .culture-value i {
+            color: #e60000;
+            margin-left: 10px;
+        }
+
+        .job-search {
+            display: flex;
+            margin-bottom: 30px;
+        }
+
+        .job-search input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px 0 0 5px;
+        }
+
+        .job-search button {
+            background: #e60000;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+
+        .contact-careers {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .contact-careers h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .contact-btn {
+            background: #e60000;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.3s;
+        }
+
+        .contact-btn:hover {
+            background: #cc0000;
+        }
+
+        @media (max-width: 1024px) {
+            .careers-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .job-header {
+                flex-direction: column;
+                align-items: start;
+            }
+
+            .job-type {
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="careers-container">
+            <div class="careers-header">
+                <h1>انضم إلى فريق سويت هوم</h1>
+                <p>نبحث عن المواهب المتميزة لنكمل رحلة النجاح معًا</p>
+            </div>
+
+            <div class="job-search">
+                <input type="text" placeholder="ابحث عن وظيفة">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+
+            <div class="careers-content">
+                <div class="job-listings">
+                    <div class="job-section">
+                        <h2>الوظائف الشاغرة</h2>
+                        
+                        <div class="job-card">
+                            <div class="job-header">
+                                <h3 class="job-title">مدير مبيعات</h3>
+                                <span class="job-type">دوام كامل</span>
+                            </div>
+                            <div class="job-details">
+                                <p>القاهرة، مصر</p>
+                                <button class="job-apply">تقدم الآن</button>
+                            </div>
+                        </div>
+
+                        <div class="job-card">
+                            <div class="job-header">
+                                <h3 class="job-title">مهندس تطوير برمجيات</h3>
+                                <span class="job-type">دوام كامل</span>
+                            </div>
+                            <div class="job-details">
+                                <p>القاهرة، مصر</p>
+                                <button class="job-apply">تقدم الآن</button>
+                            </div>
+                        </div>
+
+                        <div class="job-card">
+                            <div class="job-header">
+                                <h3 class="job-title">مسؤول خدمة عملاء</h3>
+                                <span class="job-type">دوام جزئي</span>
+                            </div>
+                            <div class="job-details">
+                                <p>القاهرة، مصر</p>
+                                <button class="job-apply">تقدم الآن</button>
+                            </div>
+                        </div>
+
+                        <div class="job-card">
+                            <div class="job-header">
+                                <h3 class="job-title">متخصص تسويق رقمي</h3>
+                                <span class="job-type">دوام كامل</span>
+                            </div>
+                            <div class="job-details">
+                                <p>القاهرة، مصر</p>
+                                <button class="job-apply">تقدم الآن</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="careers-sidebar">
+                    <div class="why-work-here">
+                        <h3>لماذا العمل معنا</h3>
+                        <div class="work-benefit">
+                            <i class="fas fa-chart-line"></i>
+                            <p>فرص نمو وتطوير مهني</p>
+                        </div>
+                        <div class="work-benefit">
+                            <i class="fas fa-users"></i>
+                            <p>بيئة عمل تعاونية وودية</p>
+                        </div>
+                        <div class="work-benefit">
+                            <i class="fas fa-medal"></i>
+                            <p>حوافز ومكافآت تنافسية</p>
+                        </div>
+                    </div>
+
+                    <div class="company-culture">
+                        <h3>قيمنا الأساسية</h3>
+                        <div class="culture-value">
+                            <i class="fas fa-check"></i>
+                            <p>الابتكار والإبداع</p>
+                        </div>
+                        <div class="culture-value">
+                            <i class="fas fa-check"></i>
+                            <p>الشفافية والنزاهة</p>
+                        </div>
+                        <div class="culture-value">
+                            <i class="fas fa-check"></i>
+                            <p>العمل الجماعي</p>
+                        </div>
+                        <div class="culture-value">
+                            <i class="fas fa-check"></i>
+                            <p>التركيز على العملاء</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-careers">
+                <h3>هل لديك استفسارات حول الوظائف؟</h3>
+                <a href="#" class="contact-btn">
+                    <i class="fas fa-envelope"></i>
+                    تواصل مع إدارة الموارد البشرية
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // تفعيل زر التقديم للوظائف
+        document.querySelectorAll('.job-apply').forEach(button => {
+            button.addEventListener('click', function() {
+                const jobTitle = this.closest('.job-card').querySelector('.job-title').textContent;
+                alert(`شكرًا لاهتمامك بوظيفة ${jobTitle}. سيتم توجيهك لصفحة التقديم`);
+            });
+        });
+
+        // البحث عن الوظائف
+        document.querySelector('.job-search button').addEventListener('click', function() {
+            const searchTerm = document.querySelector('.job-search input').value.toLowerCase();
+            const jobCards = document.querySelectorAll('.job-card');
+
+            jobCards.forEach(card => {
+                const jobTitle = card.querySelector('.job-title').textContent.toLowerCase();
+                
+                if (jobTitle.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // زر التواصل
+        document.querySelector('.contact-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('سيتم توجيهك إلى قسم الموارد البشرية');
+        });
+    </script>
+</body>
+</html>
